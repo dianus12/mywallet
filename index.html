@@ -1,0 +1,1097 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>My wallets💜✨</title>
+  
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="My wallets💜✨">
+  <meta name="theme-color" content="#F7F3EE">
+
+  <!-- Ícono con fondo claro y huella morada -->
+  <link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%23F7F3EE'/%3E%3Cg fill='none' stroke='%238B5CF6' stroke-width='5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cellipse cx='27' cy='33' rx='7' ry='12' transform='rotate(-20 27 33)'/%3E%3Cellipse cx='42' cy='24' rx='7' ry='13' transform='rotate(-5 42 24)'/%3E%3Cellipse cx='58' cy='24' rx='7' ry='13' transform='rotate(5 58 24)'/%3E%3Cellipse cx='73' cy='33' rx='7' ry='12' transform='rotate(20 73 33)'/%3E%3Cpath d='M30,55 C22,50 18,65 24,76 C29,85 40,88 50,88 C60,88 71,85 76,76 C82,65 78,50 70,55 C65,58 58,49 50,49 C42,49 35,58 30,55 Z'/%3E%3Cpath d='M50,78 C50,78 40,71 40,64 C40,59 44,57 47,59 C49,60 50,62 50,62 C50,62 51,60 53,59 C56,57 60,59 60,64 C60,71 50,78 50,78 Z'/%3E%3C/g%3E%3C/svg%3E">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%23F7F3EE'/%3E%3Cg fill='none' stroke='%238B5CF6' stroke-width='5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cellipse cx='27' cy='33' rx='7' ry='12' transform='rotate(-20 27 33)'/%3E%3Cellipse cx='42' cy='24' rx='7' ry='13' transform='rotate(-5 42 24)'/%3E%3Cellipse cx='58' cy='24' rx='7' ry='13' transform='rotate(5 58 24)'/%3E%3Cellipse cx='73' cy='33' rx='7' ry='12' transform='rotate(20 73 33)'/%3E%3Cpath d='M30,55 C22,50 18,65 24,76 C29,85 40,88 50,88 C60,88 71,85 76,76 C82,65 78,50 70,55 C65,58 58,49 50,49 C42,49 35,58 30,55 Z'/%3E%3Cpath d='M50,78 C50,78 40,71 40,64 C40,59 44,57 47,59 C49,60 50,62 50,62 C50,62 51,60 53,59 C56,57 60,59 60,64 C60,71 50,78 50,78 Z'/%3E%3C/g%3E%3C/svg%3E">
+
+  <style>
+    :root {
+      --bg: #F7F3EE;
+      --card: #FFFFFF;
+      --card-subtle: #F0EAE1;
+      --border: #E8DFD3;
+      --text-main: #2D2338;
+      --text-muted: #847593;
+      --purple: #8B5CF6;
+      --purple-dark: #6D28D9;
+      --lilac: #D8B4FE;
+      --lilac-soft: #F3E8FF;
+      --accent-binance: #F59E0B;
+      --accent-usd: #10B981;
+      --accent-eur: #6366F1;
+      --accent-ves: #EC4899;
+      --danger: #F43F5E;
+      --success: #10B981;
+      --safe-bottom: env(safe-area-inset-bottom, 16px);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-tap-highlight-color: transparent;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text-main);
+      min-height: 100vh;
+      padding-bottom: calc(75px + var(--safe-bottom));
+      overflow-x: hidden;
+    }
+
+    header {
+      padding: 0.85rem 1.15rem 0.6rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(247, 243, 238, 0.95);
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 50;
+    }
+
+    .brand-title {
+      font-size: 1.15rem;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .app-logo-badge {
+      width: 26px;
+      height: 26px;
+      border-radius: 8px;
+      background: #FFFFFF;
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .rate-pill {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 0.3rem 0.65rem;
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      font-weight: 700;
+    }
+
+    .rate-pill input {
+      background: transparent;
+      border: none;
+      color: var(--purple);
+      font-weight: 800;
+      font-size: 0.85rem;
+      width: 65px;
+      text-align: right;
+      outline: none;
+    }
+
+    .app-screen {
+      max-width: 480px;
+      margin: 0 auto;
+      padding: 0.75rem 1.15rem;
+      display: none;
+    }
+
+    .app-screen.active {
+      display: block;
+    }
+
+    .hero-balance {
+      text-align: center;
+      padding: 1rem 0 0.6rem;
+    }
+
+    .hero-label {
+      font-size: 0.72rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      font-weight: 700;
+    }
+
+    .hero-amount {
+      font-size: 2.4rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+      color: var(--purple);
+      margin: 0.2rem 0;
+    }
+
+    .chart-box {
+      position: relative;
+      width: 200px;
+      height: 200px;
+      margin: 0.8rem auto 1.2rem;
+    }
+
+    .chart-box svg {
+      width: 100%;
+      height: 100%;
+      transform: rotate(-90deg);
+    }
+
+    .chart-center-val {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      pointer-events: none;
+    }
+
+    .chart-center-val span {
+      font-size: 0.65rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      font-weight: 700;
+      display: block;
+    }
+
+    .chart-center-val strong {
+      font-size: 1rem;
+      font-weight: 800;
+      color: var(--text-main);
+    }
+
+    .distribution-list {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.6rem;
+      margin-top: 0.6rem;
+    }
+
+    .dist-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 0.75rem 0.85rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.2rem;
+    }
+
+    .dist-card-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      font-weight: 700;
+    }
+
+    .dist-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      display: inline-block;
+    }
+
+    .dist-card-val {
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: var(--text-main);
+    }
+
+    .dist-card-sub {
+      font-size: 0.68rem;
+      color: var(--text-muted);
+      font-weight: 600;
+    }
+
+    .category-block {
+      margin-bottom: 1.2rem;
+    }
+
+    .category-title {
+      font-size: 0.75rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.45rem;
+      padding-left: 0.2rem;
+    }
+
+    .account-item {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 0.65rem 0.85rem;
+      margin-bottom: 0.45rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.5rem;
+    }
+
+    .acc-left {
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+      min-width: 0;
+      flex: 1;
+    }
+
+    .acc-icon-btn {
+      width: 34px;
+      height: 34px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--lilac-soft);
+      border: 1px solid var(--lilac);
+      cursor: pointer;
+      flex-shrink: 0;
+      padding: 0;
+      overflow: hidden;
+    }
+
+    .acc-icon-btn img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .acc-icon-btn svg {
+      width: 18px;
+      height: 18px;
+      fill: var(--purple);
+    }
+
+    .acc-name {
+      font-size: 0.85rem;
+      font-weight: 700;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .acc-right {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .acc-input {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      color: var(--text-main);
+      padding: 0.45rem 0.6rem;
+      border-radius: 8px;
+      width: 105px;
+      text-align: right;
+      font-weight: 700;
+      font-size: 0.85rem;
+      outline: none;
+    }
+
+    .acc-input:focus {
+      border-color: var(--purple);
+    }
+
+    .btn-icon {
+      background: transparent;
+      border: none;
+      color: var(--danger);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.35rem;
+      font-weight: 800;
+    }
+
+    /* DEUDAS DESPLEGABLES */
+    .debt-card-fold {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      margin-bottom: 0.85rem;
+      overflow: hidden;
+    }
+
+    .debt-card-header {
+      padding: 0.85rem 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-weight: 800;
+      cursor: pointer;
+      user-select: none;
+      font-size: 0.88rem;
+    }
+
+    .debt-card-body {
+      padding: 0 0.85rem 0.85rem;
+    }
+
+    .debt-card-body.hidden {
+      display: none;
+    }
+
+    .debt-row {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 0.65rem 0.8rem;
+      margin-top: 0.45rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .debt-person {
+      font-size: 0.85rem;
+      font-weight: 700;
+    }
+
+    .btn-primary-block {
+      width: 100%;
+      background: var(--purple);
+      color: #fff;
+      border: none;
+      border-radius: 12px;
+      padding: 0.75rem;
+      font-weight: 800;
+      font-size: 0.85rem;
+      cursor: pointer;
+      margin-bottom: 1rem;
+    }
+
+    /* BARRA INFERIOR FIJA GARANTIZADA */
+    .bottom-nav {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: #FFFFFF;
+      border-top: 1px solid var(--border);
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      height: 60px;
+      z-index: 9999;
+    }
+
+    .nav-btn {
+      background: transparent;
+      border: none;
+      color: var(--text-muted);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.2rem;
+      font-size: 0.68rem;
+      font-weight: 800;
+      cursor: pointer;
+      flex: 1;
+      height: 100%;
+      justify-content: center;
+    }
+
+    .nav-btn svg {
+      width: 22px;
+      height: 22px;
+      fill: currentColor;
+    }
+
+    .nav-btn.active {
+      color: var(--purple);
+    }
+
+    /* MODALES */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(45, 35, 56, 0.5);
+      z-index: 10000;
+      align-items: flex-end;
+      justify-content: center;
+    }
+
+    .modal-overlay.active {
+      display: flex;
+    }
+
+    .modal-box {
+      background: var(--card);
+      border-radius: 20px 20px 0 0;
+      width: 100%;
+      max-width: 480px;
+      padding: 1.25rem 1.25rem calc(1.5rem + var(--safe-bottom));
+    }
+
+    .modal-box h4 {
+      font-size: 1rem;
+      margin-bottom: 1rem;
+      font-weight: 800;
+    }
+
+    .form-group {
+      margin-bottom: 0.85rem;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      font-weight: 700;
+      margin-bottom: 0.3rem;
+    }
+
+    .form-group input, .form-group select {
+      width: 100%;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      color: var(--text-main);
+      padding: 0.65rem 0.8rem;
+      border-radius: 10px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      outline: none;
+    }
+
+    .modal-actions {
+      display: flex;
+      gap: 0.6rem;
+      margin-top: 1.2rem;
+    }
+
+    .modal-actions button {
+      flex: 1;
+      padding: 0.75rem;
+      border-radius: 10px;
+      font-weight: 800;
+      font-size: 0.85rem;
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn-cancel {
+      background: var(--card-subtle);
+      color: var(--text-muted);
+    }
+
+    .btn-confirm {
+      background: var(--purple);
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="brand-title">
+      <div class="app-logo-badge">
+        <svg viewBox="0 0 100 100" style="width:18px;height:18px;">
+          <g fill="none" stroke="#8B5CF6" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
+            <ellipse cx="27" cy="33" rx="7" ry="12" transform="rotate(-20 27 33)"/>
+            <ellipse cx="42" cy="24" rx="7" ry="13" transform="rotate(-5 42 24)"/>
+            <ellipse cx="58" cy="24" rx="7" ry="13" transform="rotate(5 58 24)"/>
+            <ellipse cx="73" cy="33" rx="7" ry="12" transform="rotate(20 73 33)"/>
+            <path d="M30,55 C22,50 18,65 24,76 C29,85 40,88 50,88 C60,88 71,85 76,76 C82,65 78,50 70,55 C65,58 58,49 50,49 C42,49 35,58 30,55 Z"/>
+            <path d="M50,78 C50,78 40,71 40,64 C40,59 44,57 47,59 C49,60 50,62 50,62 C50,62 51,60 53,59 C56,57 60,59 60,64 C60,71 50,78 50,78 Z"/>
+          </g>
+        </svg>
+      </div>
+      <span>My wallets💜✨</span>
+    </div>
+    <div class="rate-pill">
+      <span>1 USDT =</span>
+      <input type="number" id="globalRate" value="1007" step="any" oninput="handleRateChange(this.value)">
+      <span>Bs</span>
+    </div>
+  </header>
+
+  <!-- PANTALLA 1: INICIO -->
+  <main id="view-dashboard" class="app-screen active">
+    <div class="hero-balance">
+      <div class="hero-label">Patrimonio Global Neto</div>
+      <div class="hero-amount" id="sumTotal">$0.00</div>
+      <small style="color:var(--text-muted);font-size:0.75rem;font-weight:600;">(Cuentas + Por Cobrar - Por Pagar)</small>
+    </div>
+
+    <div class="chart-box">
+      <svg id="donutSvg" viewBox="0 0 100 100"></svg>
+      <div class="chart-center-val">
+        <span>Mayor Activo</span>
+        <strong id="topCatLabel">--</strong>
+      </div>
+    </div>
+
+    <div class="distribution-list">
+      <div class="dist-card">
+        <div class="dist-card-top">
+          <span>USDT</span>
+          <span class="dist-dot" style="background: var(--accent-binance);"></span>
+        </div>
+        <div class="dist-card-val" id="catVal-usdt">$0.00</div>
+        <div class="dist-card-sub" id="catPct-usdt">0%</div>
+      </div>
+
+      <div class="dist-card">
+        <div class="dist-card-top">
+          <span>Dólares</span>
+          <span class="dist-dot" style="background: var(--accent-usd);"></span>
+        </div>
+        <div class="dist-card-val" id="catVal-dolares">$0.00</div>
+        <div class="dist-card-sub" id="catPct-dolares">0%</div>
+      </div>
+
+      <div class="dist-card">
+        <div class="dist-card-top">
+          <span>Euros (1:1)</span>
+          <span class="dist-dot" style="background: var(--accent-eur);"></span>
+        </div>
+        <div class="dist-card-val" id="catVal-euros">$0.00</div>
+        <div class="dist-card-sub" id="catPct-euros">0%</div>
+      </div>
+
+      <div class="dist-card">
+        <div class="dist-card-top">
+          <span>Bolívares (USDT)</span>
+          <span class="dist-dot" style="background: var(--accent-ves);"></span>
+        </div>
+        <div class="dist-card-val" id="catVal-bolivares">$0.00</div>
+        <div class="dist-card-sub" id="catPct-bolivares">0%</div>
+      </div>
+
+      <div class="dist-card" style="background:#F0FDF4;border-color:#DCFCE7;">
+        <div class="dist-card-top">
+          <span style="color:var(--success);">Me Deben</span>
+          <span class="dist-dot" style="background: var(--success);"></span>
+        </div>
+        <div class="dist-card-val" id="catVal-receivable" style="color:var(--success);">$0.00</div>
+        <div class="dist-card-sub" id="catPct-receivable">Por Cobrar</div>
+      </div>
+
+      <div class="dist-card" style="background:#FFF1F2;border-color:#FFE4E6;">
+        <div class="dist-card-top">
+          <span style="color:var(--danger);">Yo Debo</span>
+          <span class="dist-dot" style="background: var(--danger);"></span>
+        </div>
+        <div class="dist-card-val" id="catVal-payable" style="color:var(--danger);">$0.00</div>
+        <div class="dist-card-sub" id="catPct-payable">Por Pagar</div>
+      </div>
+    </div>
+  </main>
+
+  <!-- PANTALLA 2: CUENTAS -->
+  <main id="view-editor" class="app-screen">
+    <button class="btn-primary-block" onclick="openModal('modalAccount')">
+      + Añadir Banco o Cuenta
+    </button>
+    <div id="accountsWrapper"></div>
+  </main>
+
+  <!-- PANTALLA 3: DEUDAS Y COBROS -->
+  <main id="view-debts" class="app-screen">
+    <button class="btn-primary-block" onclick="openModal('modalDebt')">
+      + Añadir Registro de Deuda
+    </button>
+
+    <div class="debt-card-fold">
+      <div class="debt-card-header" style="color: var(--success);" onclick="toggleDebtSection('rec')">
+        <span>Me Deben (Por Cobrar)</span>
+        <span id="debtReceivableTotal">$0.00</span>
+      </div>
+      <div class="debt-card-body" id="body-rec"></div>
+    </div>
+
+    <div class="debt-card-fold">
+      <div class="debt-card-header" style="color: var(--danger);" onclick="toggleDebtSection('pay')">
+        <span>Yo Debo (Por Pagar)</span>
+        <span id="debtPayableTotal">$0.00</span>
+      </div>
+      <div class="debt-card-body" id="body-pay"></div>
+    </div>
+  </main>
+
+  <!-- BARRA DE NAVEGACIÓN INFERIOR -->
+  <nav class="bottom-nav">
+    <button class="nav-btn active" id="btn-tab-dashboard" onclick="switchTab('dashboard')">
+      <svg viewBox="0 0 24 24"><path d="M11 2v20c-5.07-.5-9-4.79-9-10s3.93-9.5 9-10zm2 0v8.99L21.95 7.4C20.48 4.23 17.06 2.21 13 2zm0 11.01V22c4.06-.21 7.48-2.23 8.95-5.4L13 13.01z"/></svg>
+      <span>Inicio</span>
+    </button>
+    <button class="nav-btn" id="btn-tab-editor" onclick="switchTab('editor')">
+      <svg viewBox="0 0 24 24"><path d="M21 18v1c0 1.1-.9 2-2 2H5c-1.11 0-2-.9-2-2V5c0-1.1.89-2 2-2h14c1.1 0 2 .9 2 2v1h-9c-1.11 0-2 .9-2 2v8c0 1.1.89 2 2 2h9zm-9-2h10V8H12v8zm4-2.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/></svg>
+      <span>Cuentas</span>
+    </button>
+    <button class="nav-btn" id="btn-tab-debts" onclick="switchTab('debts')">
+      <svg viewBox="0 0 24 24"><path d="M16 17.01V10h-2v7.01h-3L15 21l4-3.99h-3zM9 3L5 6.99h3V14h2V6.99h3L9 3z"/></svg>
+      <span>Deudas</span>
+    </button>
+  </nav>
+
+  <!-- INPUT OCULTO PARA SUBIR FOTO DEL BANCO -->
+  <input type="file" id="picUploadInput" accept="image/*" style="display:none;" onchange="handlePicUploaded(event)">
+
+  <!-- MODAL: AGREGAR CUENTA -->
+  <div id="modalAccount" class="modal-overlay">
+    <div class="modal-box">
+      <h4>Añadir Cuenta</h4>
+      <div class="form-group">
+        <label>Categoría</label>
+        <select id="newAccCategory">
+          <option value="dolares">Dólares ($)</option>
+          <option value="euros">Euros (€)</option>
+          <option value="bolivares">Bolívares (Bs)</option>
+          <option value="usdt">USDT</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Nombre del Banco / Cuenta</label>
+        <input type="text" id="newAccName" placeholder="Ej: Zelle, Banesco...">
+      </div>
+      <div class="form-group">
+        <label>Saldo Inicial</label>
+        <input type="number" id="newAccBal" value="0" step="any">
+      </div>
+      <div class="modal-actions">
+        <button class="btn-cancel" onclick="closeModal('modalAccount')">Cancelar</button>
+        <button class="btn-confirm" onclick="saveAccount()">Guardar</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL: AGREGAR DEUDA -->
+  <div id="modalDebt" class="modal-overlay">
+    <div class="modal-box">
+      <h4>Nuevo Registro</h4>
+      <div class="form-group">
+        <label>Tipo</label>
+        <select id="newDebtType">
+          <option value="receivable">Me deben (Por cobrar)</option>
+          <option value="payable">Debo (Por pagar)</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Nombre de la Persona</label>
+        <input type="text" id="newDebtPerson" placeholder="Ej: Valerie">
+      </div>
+      <div class="form-group">
+        <label>Monto</label>
+        <input type="number" id="newDebtAmount" value="0" step="any">
+      </div>
+      <div class="modal-actions">
+        <button class="btn-cancel" onclick="closeModal('modalDebt')">Cancelar</button>
+        <button class="btn-confirm" onclick="saveDebt()">Guardar</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const BANK_SVG = `<svg viewBox="0 0 24 24"><path d="M4 10v7h3v-7H4zm6 0v7h3v-7h-3zm8 0v7h3v-7h-3zM2 22h19v-3H2v3zm9.5-20L2 7v2h19V7l-9.5-5z"/></svg>`;
+
+    const defaultAccounts = [
+      { id: '1', category: 'usdt', name: 'Binance', balance: 0, customImage: null },
+      { id: '2', category: 'dolares', name: 'Wells Fargo / Zelle', balance: 0, customImage: null },
+      { id: '3', category: 'dolares', name: 'Banesco Panamá', balance: 0, customImage: null },
+      { id: '4', category: 'dolares', name: 'Zinli', balance: 0, customImage: null },
+      { id: '5', category: 'dolares', name: 'Dólares en Efectivo', balance: 0, customImage: null },
+      { id: '6', category: 'dolares', name: 'Banco Venezolano (Custodia)', balance: 0, customImage: null },
+      { id: '7', category: 'euros', name: 'Euros en Efectivo', balance: 0, customImage: null },
+      { id: '8', category: 'euros', name: 'CaixaBank', balance: 0, customImage: null },
+      { id: '9', category: 'euros', name: 'BBVA', balance: 0, customImage: null },
+      { id: '10', category: 'bolivares', name: 'Bancos Nacionales (Bs)', balance: 0, customImage: null }
+    ];
+
+    const defaultDebts = [
+      { id: 'd1', person: 'Andrés', amount: 500, type: 'payable' },
+      { id: 'd2', person: 'Valerie', amount: 470, type: 'receivable' },
+      { id: 'd3', person: 'Junior', amount: 25, type: 'receivable' }
+    ];
+
+    let appState = {
+      rate: 1007,
+      accounts: defaultAccounts,
+      debts: defaultDebts
+    };
+
+    let selectedUploadId = null;
+
+    // Normalizador de compatibilidad
+    function loadAndSanitizeData() {
+      try {
+        const stored = localStorage.getItem('my_wallets_v5');
+        if (stored) {
+          const parsed = JSON.parse(stored);
+          if (parsed && typeof parsed === 'object') {
+            if (parsed.rate) appState.rate = parseFloat(parsed.rate) || 1007;
+            if (Array.isArray(parsed.accounts) && parsed.accounts.length > 0) {
+              appState.accounts = parsed.accounts.map(a => ({
+                id: a.id || String(Date.now() + Math.random()),
+                category: a.category || a.cat || 'dolares',
+                name: a.name || 'Cuenta',
+                balance: parseFloat(a.balance !== undefined ? a.balance : (a.bal !== undefined ? a.bal : 0)) || 0,
+                customImage: a.customImage || a.img || null
+              }));
+            }
+            if (Array.isArray(parsed.debts)) {
+              appState.debts = parsed.debts.map(d => ({
+                id: d.id || String(Date.now() + Math.random()),
+                person: d.person || 'Persona',
+                amount: parseFloat(d.amount !== undefined ? d.amount : (d.amt !== undefined ? d.amt : 0)) || 0,
+                type: d.type || 'receivable'
+              }));
+            }
+          }
+        }
+      } catch(e) {
+        console.warn('Iniciando con datos predeterminados');
+      }
+    }
+
+    function saveState() {
+      try {
+        localStorage.setItem('my_wallets_v5', JSON.stringify(appState));
+      } catch(e) {}
+    }
+
+    function switchTab(screenId) {
+      document.querySelectorAll('.app-screen').forEach(s => s.classList.remove('active'));
+      document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+      
+      const targetScreen = document.getElementById('view-' + screenId);
+      const targetBtn = document.getElementById('btn-tab-' + screenId);
+      
+      if (targetScreen) targetScreen.classList.add('active');
+      if (targetBtn) targetBtn.classList.add('active');
+      
+      window.scrollTo(0, 0);
+      updateDashboardData();
+    }
+
+    function handleRateChange(val) {
+      const num = parseFloat(val);
+      appState.rate = num > 0 ? num : 1;
+      saveState();
+      updateDashboardData();
+    }
+
+    function getNormalizedValue(acc) {
+      const bal = parseFloat(acc.balance) || 0;
+      if (acc.category === 'bolivares') {
+        const rate = parseFloat(appState.rate) || 1;
+        return bal / rate;
+      }
+      return bal;
+    }
+
+    function updateDashboardData() {
+      let totals = { usdt: 0, dolares: 0, euros: 0, bolivares: 0 };
+      let accountsSum = 0;
+
+      appState.accounts.forEach(acc => {
+        const norm = getNormalizedValue(acc);
+        totals[acc.category] = (totals[acc.category] || 0) + norm;
+        accountsSum += norm;
+      });
+
+      let recTotal = 0, payTotal = 0;
+      appState.debts.forEach(d => {
+        const amt = parseFloat(d.amount) || 0;
+        if (d.type === 'receivable') recTotal += amt;
+        else payTotal += amt;
+      });
+
+      const netWorth = accountsSum + recTotal - payTotal;
+      document.getElementById('sumTotal').textContent = `$${netWorth.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+
+      const cats = [
+        { key: 'usdt', label: 'USDT', color: '#F59E0B' },
+        { key: 'dolares', label: 'DÓLARES', color: '#10B981' },
+        { key: 'euros', label: 'EUROS', color: '#6366F1' },
+        { key: 'bolivares', label: 'BOLÍVARES', color: '#EC4899' }
+      ];
+
+      const grossAssets = accountsSum + recTotal;
+
+      cats.forEach(c => {
+        const val = totals[c.key] || 0;
+        const pct = grossAssets > 0 ? ((val / grossAssets) * 100).toFixed(1) : '0';
+        document.getElementById(`catVal-${c.key}`).textContent = `$${val.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+        document.getElementById(`catPct-${c.key}`).textContent = `${pct}% del total`;
+      });
+
+      document.getElementById('catVal-receivable').textContent = `$${recTotal.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+      document.getElementById('catVal-payable').textContent = `$${payTotal.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+
+      // Donut Chart
+      let chartItems = [
+        { label: 'USDT', val: totals.usdt, color: '#F59E0B' },
+        { label: 'Dólares', val: totals.dolares, color: '#10B981' },
+        { label: 'Euros', val: totals.euros, color: '#6366F1' },
+        { label: 'Bolívares', val: totals.bolivares, color: '#EC4899' },
+        { label: 'Por Cobrar', val: recTotal, color: '#34D399' }
+      ];
+
+      let topAsset = { label: '--', val: 0 };
+      chartItems.forEach(item => {
+        if (item.val > topAsset.val) topAsset = item;
+      });
+
+      document.getElementById('topCatLabel').textContent = topAsset.val > 0 ? topAsset.label : '--';
+      drawDonutChart(chartItems, grossAssets);
+    }
+
+    function drawDonutChart(data, total) {
+      const svg = document.getElementById('donutSvg');
+      while (svg.firstChild) svg.removeChild(svg.firstChild);
+
+      const r = 36;
+      const c = 2 * Math.PI * r;
+
+      if (total <= 0) {
+        const emptyCircle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+        emptyCircle.setAttribute('cx', '50');
+        emptyCircle.setAttribute('cy', '50');
+        emptyCircle.setAttribute('r', r);
+        emptyCircle.setAttribute('fill', 'transparent');
+        emptyCircle.setAttribute('stroke', '#E8DFD3');
+        emptyCircle.setAttribute('stroke-width', '12');
+        svg.appendChild(emptyCircle);
+        return;
+      }
+
+      let accumulated = 0;
+      data.forEach(item => {
+        if (item.val <= 0) return;
+        const pct = item.val / total;
+        const length = pct * c;
+        const offset = -(accumulated * c);
+
+        const circle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+        circle.setAttribute('cx', '50');
+        circle.setAttribute('cy', '50');
+        circle.setAttribute('r', r);
+        circle.setAttribute('fill', 'transparent');
+        circle.setAttribute('stroke', item.color);
+        circle.setAttribute('stroke-width', '12');
+        circle.setAttribute('stroke-dasharray', `${length} ${c - length}`);
+        circle.setAttribute('stroke-dashoffset', offset);
+        svg.appendChild(circle);
+
+        accumulated += pct;
+      });
+    }
+
+    function renderAccountsList() {
+      const containerAcc = document.getElementById('accountsWrapper');
+      containerAcc.innerHTML = '';
+
+      const catMeta = [
+        { key: 'usdt', label: 'USDT (Binance)', color: 'var(--accent-binance)' },
+        { key: 'dolares', label: 'Dólares ($)', color: 'var(--accent-usd)' },
+        { key: 'euros', label: 'Euros (€) [Paridad 1:1]', color: 'var(--accent-eur)' },
+        { key: 'bolivares', label: 'Bolívares [÷ Tasa = USDT]', color: 'var(--accent-ves)' }
+      ];
+
+      catMeta.forEach(meta => {
+        const filtered = appState.accounts.filter(a => a.category === meta.key);
+        const block = document.createElement('div');
+        block.className = 'category-block';
+
+        let inner = `<div class="category-title" style="color:${meta.color}"><span>${meta.label}</span></div>`;
+
+        filtered.forEach(acc => {
+          let iconHtml = acc.customImage ? `<img src="${acc.customImage}">` : BANK_SVG;
+          inner += `
+            <div class="account-item">
+              <div class="acc-left">
+                <button class="acc-icon-btn" onclick="openPicUploader('${acc.id}')" title="Subir foto del banco">
+                  ${iconHtml}
+                </button>
+                <div class="acc-name">${acc.name}</div>
+              </div>
+              <div class="acc-right">
+                <input class="acc-input" type="number" step="any" value="${acc.balance}" oninput="changeBalance('${acc.id}', this.value)">
+                <button class="btn-icon" onclick="deleteAccount('${acc.id}')">✕</button>
+              </div>
+            </div>
+          `;
+        });
+
+        block.innerHTML = inner;
+        containerAcc.appendChild(block);
+      });
+    }
+
+    function openPicUploader(id) {
+      selectedUploadId = id;
+      document.getElementById('picUploadInput').click();
+    }
+
+    function handlePicUploaded(e) {
+      const file = e.target.files[0];
+      if (!file) return;
+
+      const reader = new FileReader();
+      reader.onload = function(event) {
+        const img = new Image();
+        img.onload = function() {
+          const canvas = document.createElement('canvas');
+          canvas.width = 80;
+          canvas.height = 80;
+          const ctx = canvas.getContext('2d');
+          ctx.drawImage(img, 0, 0, 80, 80);
+          const dataUrl = canvas.toDataURL('image/png', 0.85);
+
+          const acc = appState.accounts.find(a => a.id === selectedUploadId);
+          if (acc) {
+            acc.customImage = dataUrl;
+            saveState();
+            renderAccountsList();
+          }
+        };
+        img.src = event.target.result;
+      };
+      reader.readAsDataURL(file);
+      e.target.value = '';
+    }
+
+    function changeBalance(id, val) {
+      const acc = appState.accounts.find(a => a.id === id);
+      if (acc) {
+        acc.balance = parseFloat(val) || 0;
+        saveState();
+        updateDashboardData();
+      }
+    }
+
+    function deleteAccount(id) {
+      appState.accounts = appState.accounts.filter(a => a.id !== id);
+      saveState();
+      renderAccountsList();
+      updateDashboardData();
+    }
+
+    function toggleDebtSection(type) {
+      document.getElementById('body-' + type).classList.toggle('hidden');
+    }
+
+    function renderDebtsList() {
+      let recTotal = 0, payTotal = 0;
+      const recBox = document.getElementById('body-rec');
+      const payBox = document.getElementById('body-pay');
+
+      recBox.innerHTML = '';
+      payBox.innerHTML = '';
+
+      appState.debts.forEach(d => {
+        const amt = parseFloat(d.amount) || 0;
+        const row = document.createElement('div');
+        row.className = 'debt-row';
+        row.innerHTML = `
+          <div class="debt-person">${d.person}</div>
+          <div style="display:flex; align-items:center; gap:0.6rem;">
+            <strong style="font-size:0.95rem;">$${amt.toFixed(2)}</strong>
+            <button class="btn-icon" onclick="deleteDebt('${d.id}')">✕</button>
+          </div>
+        `;
+
+        if (d.type === 'receivable') {
+          recTotal += amt;
+          recBox.appendChild(row);
+        } else {
+          payTotal += amt;
+          payBox.appendChild(row);
+        }
+      });
+
+      if (recBox.innerHTML === '') recBox.innerHTML = '<p style="color:var(--text-muted);font-size:0.75rem;padding:0.4rem 0;">No tienes cobros pendientes.</p>';
+      if (payBox.innerHTML === '') payBox.innerHTML = '<p style="color:var(--text-muted);font-size:0.75rem;padding:0.4rem 0;">No tienes deudas por pagar.</p>';
+
+      document.getElementById('debtReceivableTotal').textContent = `$${recTotal.toLocaleString('en-US', { minimumFractionDigits: 2 })}`;
+      document.getElementById('debtPayableTotal').textContent = `$${payTotal.toLocaleString('en-US', { minimumFractionDigits: 2 })}`;
+    }
+
+    function deleteDebt(id) {
+      appState.debts = appState.debts.filter(d => d.id !== id);
+      saveState();
+      renderDebtsList();
+      updateDashboardData();
+    }
+
+    function openModal(id) { document.getElementById(id).classList.add('active'); }
+    function closeModal(id) { document.getElementById(id).classList.remove('active'); }
+
+    function saveAccount() {
+      const cat = document.getElementById('newAccCategory').value;
+      const name = document.getElementById('newAccName').value.trim();
+      const bal = parseFloat(document.getElementById('newAccBal').value) || 0;
+
+      if (!name) return alert('Ingresa un nombre para la cuenta');
+
+      appState.accounts.push({
+        id: Date.now().toString(),
+        category: cat,
+        name: name,
+        balance: bal,
+        customImage: null
+      });
+
+      closeModal('modalAccount');
+      document.getElementById('newAccName').value = '';
+      document.getElementById('newAccBal').value = '0';
+      saveState();
+      renderAccountsList();
+      updateDashboardData();
+    }
+
+    function saveDebt() {
+      const type = document.getElementById('newDebtType').value;
+      const person = document.getElementById('newDebtPerson').value.trim();
+      const amount = parseFloat(document.getElementById('newDebtAmount').value) || 0;
+
+      if (!person) return alert('Ingresa el nombre de la persona');
+
+      appState.debts.push({
+        id: Date.now().toString(),
+        type: type,
+        person: person,
+        amount: amount
+      });
+
+      closeModal('modalDebt');
+      document.getElementById('newDebtPerson').value = '';
+      document.getElementById('newDebtAmount').value = '0';
+      saveState();
+      renderDebtsList();
+      updateDashboardData();
+    }
+
+    // Inicialización inmediata
+    (function init() {
+      loadAndSanitizeData();
+      document.getElementById('globalRate').value = appState.rate;
+      renderAccountsList();
+      renderDebtsList();
+      updateDashboardData();
+    })();
+  </script>
+</body>
+</html>
