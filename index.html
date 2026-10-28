@@ -276,4 +276,1259 @@
       justify-content: space-between;
       align-items: center;
       cursor: pointer;
-      user
+      user-select: none;
+      font-weight: 800;
+      font-size: 0.88rem;
+      background: #FFFFFF;
+    }
+
+    .fold-header-left {
+      display: flex;
+      align-items: center;
+      gap: 0.45rem;
+    }
+
+    .fold-header-arrow {
+      font-size: 0.8rem;
+      transition: transform 0.2s ease;
+      color: var(--text-muted);
+    }
+
+    .fold-box.collapsed .fold-header-arrow {
+      transform: rotate(-90deg);
+    }
+
+    .fold-body {
+      padding: 0 0.85rem 0.85rem;
+    }
+
+    .fold-box.collapsed .fold-body {
+      display: none;
+    }
+
+    .sub-section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.72rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin: 0.75rem 0 0.35rem;
+      color: var(--text-muted);
+    }
+
+    .account-item {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 0.6rem 0.8rem;
+      margin-bottom: 0.4rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.5rem;
+    }
+
+    .acc-left {
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+      min-width: 0;
+      flex: 1;
+    }
+
+    .acc-icon-btn {
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--lilac-soft);
+      border: 1px solid var(--lilac);
+      cursor: pointer;
+      flex-shrink: 0;
+      padding: 0;
+      overflow: hidden;
+    }
+
+    .acc-icon-btn img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .acc-icon-btn svg {
+      width: 18px;
+      height: 18px;
+      fill: var(--purple);
+    }
+
+    .acc-name {
+      font-size: 0.84rem;
+      font-weight: 700;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      cursor: pointer;
+    }
+
+    .acc-right {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .acc-input {
+      background: #FFFFFF;
+      border: 1px solid var(--border);
+      color: var(--text-main);
+      padding: 0.4rem 0.55rem;
+      border-radius: 8px;
+      width: 105px;
+      text-align: right;
+      font-weight: 700;
+      font-size: 0.85rem;
+      outline: none;
+    }
+
+    .btn-action-icon {
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      padding: 0.25rem;
+      font-size: 0.85rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .btn-edit { color: var(--purple); }
+    .btn-del { color: var(--danger); font-weight: 800; }
+
+    .debt-row {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 0.6rem 0.8rem;
+      margin-top: 0.45rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .debt-person {
+      font-size: 0.85rem;
+      font-weight: 700;
+    }
+
+    .btn-primary-block {
+      width: 100%;
+      background: var(--purple);
+      color: #fff;
+      border: none;
+      border-radius: 12px;
+      padding: 0.75rem;
+      font-weight: 800;
+      font-size: 0.85rem;
+      cursor: pointer;
+      margin-bottom: 0.9rem;
+    }
+
+    .btn-sub-add {
+      background: var(--lilac-soft);
+      border: 1px dashed var(--purple);
+      color: var(--purple);
+      border-radius: 8px;
+      font-size: 0.7rem;
+      font-weight: 800;
+      padding: 0.2rem 0.5rem;
+      cursor: pointer;
+    }
+
+    .history-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 0.8rem 0.9rem;
+      margin-bottom: 0.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .history-date {
+      font-size: 0.8rem;
+      font-weight: 800;
+      color: var(--text-main);
+    }
+
+    .history-sub {
+      font-size: 0.7rem;
+      color: var(--text-muted);
+      margin-top: 0.15rem;
+    }
+
+    .history-val {
+      text-align: right;
+    }
+
+    .history-amount {
+      font-size: 0.95rem;
+      font-weight: 800;
+    }
+
+    .history-diff {
+      font-size: 0.72rem;
+      font-weight: 800;
+      margin-top: 0.1rem;
+    }
+
+    .bottom-nav {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: #FFFFFF;
+      border-top: 1px solid var(--border);
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      height: 60px;
+      z-index: 9999;
+    }
+
+    .nav-btn {
+      background: transparent;
+      border: none;
+      color: var(--text-muted);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.2rem;
+      font-size: 0.65rem;
+      font-weight: 800;
+      cursor: pointer;
+      flex: 1;
+      height: 100%;
+      justify-content: center;
+    }
+
+    .nav-btn svg {
+      width: 20px;
+      height: 20px;
+      fill: currentColor;
+    }
+
+    .nav-btn.active {
+      color: var(--purple);
+    }
+
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(45, 35, 56, 0.5);
+      z-index: 10000;
+      align-items: flex-end;
+      justify-content: center;
+    }
+
+    .modal-overlay.active {
+      display: flex;
+    }
+
+    .modal-box {
+      background: var(--card);
+      border-radius: 20px 20px 0 0;
+      width: 100%;
+      max-width: 480px;
+      padding: 1.25rem 1.25rem calc(1.5rem + var(--safe-bottom));
+    }
+
+    .modal-box h4 {
+      font-size: 1rem;
+      margin-bottom: 0.85rem;
+      font-weight: 800;
+    }
+
+    .form-group {
+      margin-bottom: 0.85rem;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      font-weight: 700;
+      margin-bottom: 0.3rem;
+    }
+
+    .form-group input, .form-group select {
+      width: 100%;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      color: var(--text-main);
+      padding: 0.65rem 0.8rem;
+      border-radius: 10px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      outline: none;
+    }
+
+    .modal-actions {
+      display: flex;
+      gap: 0.6rem;
+      margin-top: 1.2rem;
+    }
+
+    .modal-actions button {
+      flex: 1;
+      padding: 0.75rem;
+      border-radius: 10px;
+      font-weight: 800;
+      font-size: 0.85rem;
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn-cancel {
+      background: var(--card-subtle);
+      color: var(--text-muted);
+    }
+
+    .btn-confirm {
+      background: var(--purple);
+      color: #fff;
+    }
+
+    .btn-danger-confirm {
+      background: var(--danger);
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="brand-title">
+      <div class="app-logo-badge">
+        <img src="logo.png" alt="Logo">
+      </div>
+      <span>My wallets💜✨</span>
+    </div>
+    <div class="rate-pill">
+      <span>1 USDT =</span>
+      <input type="number" id="globalRate" value="1007" step="any" oninput="handleRateChange(this.value)">
+      <span>Bs</span>
+    </div>
+  </header>
+
+  <!-- PANTALLA 1: INICIO -->
+  <main id="view-dashboard" class="app-screen active">
+    <div class="hero-balance">
+      <div class="hero-label">Patrimonio Global Neto</div>
+      <div class="hero-amount" id="sumTotal">$0.00</div>
+      
+      <div class="diff-badge-wrap">
+        <div class="diff-pill diff-zero" id="diffBadge" onclick="switchTab('history')">
+          <span id="diffBadgeText">Sin cierre previo</span>
+        </div>
+        <button class="btn-close-day" onclick="closeTodayBalance()">
+          <span>✓ Cerrar Día</span>
+        </button>
+      </div>
+    </div>
+
+    <div class="chart-box">
+      <svg id="donutSvg" viewBox="0 0 100 100"></svg>
+      <div class="chart-center-val">
+        <span>Mayor Activo</span>
+        <strong id="topCatLabel">--</strong>
+      </div>
+    </div>
+
+    <div class="distribution-list">
+      <div class="dist-card">
+        <div class="dist-card-top">
+          <span>USDT (Binance)</span>
+          <span class="dist-dot" style="background: var(--accent-binance);"></span>
+        </div>
+        <div class="dist-card-val" id="catVal-usdt">$0.00</div>
+        <div class="dist-card-sub" id="catPct-usdt">0%</div>
+      </div>
+
+      <div class="dist-card">
+        <div class="dist-card-top">
+          <span>Dólares</span>
+          <span class="dist-dot" style="background: var(--accent-usd);"></span>
+        </div>
+        <div class="dist-card-val" id="catVal-dolares">$0.00</div>
+        <div class="dist-card-sub" id="catPct-dolares">0%</div>
+      </div>
+
+      <div class="dist-card">
+        <div class="dist-card-top">
+          <span>Euros (1:1)</span>
+          <span class="dist-dot" style="background: var(--accent-eur);"></span>
+        </div>
+        <div class="dist-card-val" id="catVal-euros">$0.00</div>
+        <div class="dist-card-sub" id="catPct-euros">0%</div>
+      </div>
+
+      <div class="dist-card">
+        <div class="dist-card-top">
+          <span>Bolívares (USDT)</span>
+          <span class="dist-dot" style="background: var(--accent-ves);"></span>
+        </div>
+        <div class="dist-card-val" id="catVal-bolivares">$0.00</div>
+        <div class="dist-card-sub" id="catPct-bolivares">0%</div>
+      </div>
+
+      <div class="dist-card" style="background:#F0FDF4;border-color:#DCFCE7;">
+        <div class="dist-card-top">
+          <span style="color:var(--success);">Me Deben</span>
+          <span class="dist-dot" style="background: var(--success);"></span>
+        </div>
+        <div class="dist-card-val" id="catVal-receivable" style="color:var(--success);">$0.00</div>
+        <div class="dist-card-sub" id="catPct-receivable">Por Cobrar</div>
+      </div>
+
+      <div class="dist-card" style="background:#FFF1F2;border-color:#FFE4E6;">
+        <div class="dist-card-top">
+          <span style="color:var(--danger);">Yo Debo Total</span>
+          <span class="dist-dot" style="background: var(--danger);"></span>
+        </div>
+        <div class="dist-card-val" id="catVal-payable" style="color:var(--danger);">$0.00</div>
+        <div class="dist-card-sub" id="catPct-payable">Incluye Conjunto</div>
+      </div>
+    </div>
+  </main>
+
+  <!-- PANTALLA 2: CUENTAS -->
+  <main id="view-editor" class="app-screen">
+    <button class="btn-primary-block" onclick="openModal('modalAccount')">
+      + Añadir Cuenta o Banco Personalizado
+    </button>
+    <div id="accountsWrapper"></div>
+  </main>
+
+  <!-- PANTALLA 3: DEUDAS Y COBROS -->
+  <main id="view-debts" class="app-screen">
+    <button class="btn-primary-block" onclick="openAddDebtModal()">
+      + Añadir Nuevo Registro
+    </button>
+
+    <div class="fold-box" id="fold-rec">
+      <div class="fold-header" style="color: var(--success);" onclick="toggleFold('fold-rec')">
+        <div class="fold-header-left">
+          <span class="fold-header-arrow">▼</span>
+          <span>Me Deben (Por Cobrar)</span>
+        </div>
+        <span id="debtReceivableTotal">$0.00</span>
+      </div>
+      <div class="fold-body" id="body-rec"></div>
+    </div>
+
+    <div class="fold-box" id="fold-pay">
+      <div class="fold-header" style="color: var(--danger);" onclick="toggleFold('fold-pay')">
+        <div class="fold-header-left">
+          <span class="fold-header-arrow">▼</span>
+          <span>Yo Debo (Compromisos)</span>
+        </div>
+        <span id="debtPayableTotal">$0.00</span>
+      </div>
+      <div class="fold-body" id="body-pay"></div>
+    </div>
+
+    <div class="fold-box" id="fold-conjunto" style="border: 1.5px solid var(--purple);">
+      <div class="fold-header" style="color: var(--purple);" onclick="toggleFold('fold-conjunto')">
+        <div class="fold-header-left">
+          <span class="fold-header-arrow">▼</span>
+          <span>Conjunto / Condominio 🏢</span>
+        </div>
+        <span id="debtConjuntoTotal">$0.00</span>
+      </div>
+      <div class="fold-body" id="body-conjunto"></div>
+    </div>
+  </main>
+
+  <!-- PANTALLA 4: HISTORIAL -->
+  <main id="view-history" class="app-screen">
+    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1rem;">
+      <h3 style="font-size:1.05rem; font-weight:800;">Historial de Cierres Diarios</h3>
+      <button class="btn-sub-add" onclick="closeTodayBalance()">+ Cerrar Hoy</button>
+    </div>
+    <div id="historyListContainer"></div>
+  </main>
+
+  <!-- BARRA INFERIOR -->
+  <nav class="bottom-nav">
+    <button class="nav-btn active" id="btn-tab-dashboard" onclick="switchTab('dashboard')">
+      <svg viewBox="0 0 24 24"><path d="M11 2v20c-5.07-.5-9-4.79-9-10s3.93-9.5 9-10zm2 0v8.99L21.95 7.4C20.48 4.23 17.06 2.21 13 2zm0 11.01V22c4.06-.21 7.48-2.23 8.95-5.4L13 13.01z"/></svg>
+      <span>Inicio</span>
+    </button>
+    <button class="nav-btn" id="btn-tab-editor" onclick="switchTab('editor')">
+      <svg viewBox="0 0 24 24"><path d="M21 18v1c0 1.1-.9 2-2 2H5c-1.11 0-2-.9-2-2V5c0-1.1.89-2 2-2h14c1.1 0 2 .9 2 2v1h-9c-1.11 0-2 .9-2 2v8c0 1.1.89 2 2 2h9zm-9-2h10V8H12v8zm4-2.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/></svg>
+      <span>Cuentas</span>
+    </button>
+    <button class="nav-btn" id="btn-tab-debts" onclick="switchTab('debts')">
+      <svg viewBox="0 0 24 24"><path d="M16 17.01V10h-2v7.01h-3L15 21l4-3.99h-3zM9 3L5 6.99h3V14h2V6.99h3L9 3z"/></svg>
+      <span>Deudas</span>
+    </button>
+    <button class="nav-btn" id="btn-tab-history" onclick="switchTab('history')">
+      <svg viewBox="0 0 24 24"><path d="M13 3a9 9 0 0 0-9 9H1l3.89 3.89.07.14L9 12H6c0-3.87 3.13-7 7-7s7 3.13 7 7-3.13 7-7 7c-1.93 0-3.68-.79-4.94-2.06l-1.42 1.42A8.954 8.954 0 0 0 13 21a9 9 0 0 0 0-18zm-1 5v5l4.28 2.54.72-1.21-3.5-2.08V8H12z"/></svg>
+      <span>Historial</span>
+    </button>
+  </nav>
+
+  <input type="file" id="picUploadInput" accept="image/*" style="display:none;" onchange="handlePicUploaded(event)">
+
+  <!-- MODAL: AGREGAR CUENTA -->
+  <div id="modalAccount" class="modal-overlay">
+    <div class="modal-box">
+      <h4>Añadir Cuenta</h4>
+      <div class="form-group">
+        <label>Categoría</label>
+        <select id="newAccCategory">
+          <option value="usdt">USDT</option>
+          <option value="dolares_ext">Dólares - En el extranjero</option>
+          <option value="dolares_ven">Dólares - Bancos venezolanos (Divisas)</option>
+          <option value="euros">Euros (€)</option>
+          <option value="bolivares">Bolívares (Bs)</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Nombre de la Cuenta / Banco</label>
+        <input type="text" id="newAccName" placeholder="Ej: Nueva Subcuenta...">
+      </div>
+      <div class="form-group">
+        <label>Saldo Inicial</label>
+        <input type="number" id="newAccBal" value="0" step="any">
+      </div>
+      <div class="modal-actions">
+        <button class="btn-cancel" onclick="closeModal('modalAccount')">Cancelar</button>
+        <button class="btn-confirm" onclick="saveAccount()">Guardar</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL: AGREGAR / EDITAR DEUDA -->
+  <div id="modalDebt" class="modal-overlay">
+    <div class="modal-box">
+      <h4 id="debtModalTitle">Nuevo Registro de Deuda</h4>
+      <input type="hidden" id="editDebtId" value="">
+      <div class="form-group">
+        <label>Categoría</label>
+        <select id="newDebtType">
+          <option value="receivable">Me deben (Cobro)</option>
+          <option value="payable">Yo debo</option>
+          <option value="conjunto">Conjunto / Condominio 🏢</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Concepto / Persona</label>
+        <input type="text" id="newDebtPerson" placeholder="Ej: Mami, Cuota mensual...">
+      </div>
+      <div class="form-group">
+        <label>Monto ($)</label>
+        <input type="number" id="newDebtAmount" value="0" step="any">
+      </div>
+      <div class="modal-actions">
+        <button class="btn-cancel" onclick="closeModal('modalDebt')">Cancelar</button>
+        <button class="btn-confirm" onclick="saveDebt()">Guardar</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL: EDITAR NOMBRE DE CUENTA -->
+  <div id="modalEditAccName" class="modal-overlay">
+    <div class="modal-box">
+      <h4>Editar Nombre de Cuenta</h4>
+      <input type="hidden" id="editAccId" value="">
+      <div class="form-group">
+        <label>Nombre</label>
+        <input type="text" id="editAccNameInput">
+      </div>
+      <div class="modal-actions">
+        <button class="btn-cancel" onclick="closeModal('modalEditAccName')">Cancelar</button>
+        <button class="btn-confirm" onclick="confirmEditAccName()">Guardar</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL: CONFIRMACIÓN DE BORRADO -->
+  <div id="modalConfirmDelete" class="modal-overlay">
+    <div class="modal-box">
+      <h4>¿Confirmar eliminación?</h4>
+      <p id="deleteConfirmText" style="font-size:0.85rem;color:var(--text-muted);margin-bottom:1rem;"></p>
+      <div class="modal-actions">
+        <button class="btn-cancel" onclick="closeModal('modalConfirmDelete')">Cancelar</button>
+        <button class="btn-danger-confirm" id="btnExecuteDelete">Eliminar</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const BANK_SVG = `<svg viewBox="0 0 24 24"><path d="M4 10v7h3v-7H4zm6 0v7h3v-7h-3zm8 0v7h3v-7h-3zM2 22h19v-3H2v3zm9.5-20L2 7v2h19V7l-9.5-5z"/></svg>`;
+
+    const initialAccounts = [
+      { id: 'fix_binance', category: 'usdt', name: 'Binance', balance: 0, isFixed: true, customImage: null },
+      { id: 'fix_wf', category: 'dolares_ext', name: 'Wells Fargo / Zelle', balance: 0, isFixed: true, customImage: null },
+      { id: 'fix_bpa', category: 'dolares_ext', name: 'Banesco Panamá', balance: 0, isFixed: true, customImage: null },
+      { id: 'fix_zinli', category: 'dolares_ext', name: 'Zinli', balance: 0, isFixed: true, customImage: null },
+      { id: 'fix_usd_efec', category: 'dolares_ext', name: 'Dólares en Efectivo', balance: 0, isFixed: true, customImage: null },
+      { id: 'fix_bdv', category: 'dolares_ven', name: 'Banco de Venezuela', balance: 0, isFixed: true, customImage: null },
+      { id: 'fix_tesoro', category: 'dolares_ven', name: 'Banco del Tesoro', balance: 0, isFixed: true, customImage: null },
+      { id: 'fix_banesco', category: 'dolares_ven', name: 'Banesco', balance: 0, isFixed: true, customImage: null },
+      { id: 'fix_bnc', category: 'dolares_ven', name: 'BNC (Banco Nacional de Crédito)', balance: 0, isFixed: true, customImage: null },
+      { id: 'fix_eur_efec', category: 'euros', name: 'Euros en Efectivo', balance: 0, isFixed: true, customImage: null },
+      { id: 'fix_caixa', category: 'euros', name: 'CaixaBank', balance: 0, isFixed: true, customImage: null },
+      { id: 'fix_bbva', category: 'euros', name: 'BBVA', balance: 0, isFixed: true, customImage: null },
+      { id: 'fix_ves_nac', category: 'bolivares', name: 'Bancos Nacionales (Bs)', balance: 0, isFixed: true, customImage: null }
+    ];
+
+    const initialDebts = [
+      { id: 'fix_d_andres', person: 'Andrés', amount: 0, type: 'receivable', isFixed: true },
+      { id: 'fix_d_mami', person: 'Mami', amount: 0, type: 'receivable', isFixed: true },
+      { id: 'fix_d_bot_rec', person: 'Bot', amount: 0, type: 'receivable', isFixed: true },
+      { id: 'fix_d_andres_pay', person: 'Andrés', amount: 500, type: 'payable', isFixed: true },
+      { id: 'fix_d_bot_pay', person: 'Bot', amount: 0, type: 'payable', isFixed: true },
+      { id: 'fix_d_mulas', person: 'Mulas', amount: 0, type: 'payable', isFixed: true },
+      { id: 'fix_d_conjunto', person: 'Conjunto / Condominio', amount: 0, type: 'conjunto', isFixed: true }
+    ];
+
+    let appState = {
+      rate: 1007,
+      accounts: initialAccounts,
+      debts: initialDebts,
+      history: []
+    };
+
+    let selectedUploadId = null;
+    let pendingDeleteAction = null;
+
+    function loadAndSanitizeData() {
+      try {
+        const stored = localStorage.getItem('my_wallets_v8');
+        if (stored) {
+          const parsed = JSON.parse(stored);
+          if (parsed && typeof parsed === 'object') {
+            if (parsed.rate) appState.rate = parseFloat(parsed.rate) || 1007;
+            
+            if (Array.isArray(parsed.accounts) && parsed.accounts.length > 0) {
+              const existingMap = new Map(parsed.accounts.map(a => [a.id, a]));
+              appState.accounts = initialAccounts.map(fix => {
+                const found = existingMap.get(fix.id);
+                return found ? { ...fix, balance: found.balance || 0, name: found.name || fix.name, customImage: found.customImage || null } : fix;
+              });
+              parsed.accounts.forEach(a => {
+                if (!initialAccounts.some(fix => fix.id === a.id)) {
+                  appState.accounts.push(a);
+                }
+              });
+            }
+
+            if (Array.isArray(parsed.debts) && parsed.debts.length > 0) {
+              const debtMap = new Map(parsed.debts.map(d => [d.id, d]));
+              appState.debts = initialDebts.map(fix => {
+                const found = debtMap.get(fix.id);
+                return found ? { ...fix, amount: found.amount !== undefined ? found.amount : fix.amount, person: found.person || fix.person } : fix;
+              });
+              parsed.debts.forEach(d => {
+                if (!initialDebts.some(fix => fix.id === d.id)) {
+                  appState.debts.push(d);
+                }
+              });
+            }
+
+            if (Array.isArray(parsed.history)) {
+              appState.history = parsed.history;
+            }
+          }
+        }
+      } catch(e) {
+        console.warn('Iniciando base de datos');
+      }
+    }
+
+    function saveState() {
+      try {
+        localStorage.setItem('my_wallets_v8', JSON.stringify(appState));
+      } catch(e) {}
+    }
+
+    function switchTab(screenId) {
+      document.querySelectorAll('.app-screen').forEach(s => s.classList.remove('active'));
+      document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+      
+      const targetScreen = document.getElementById('view-' + screenId);
+      const targetBtn = document.getElementById('btn-tab-' + screenId);
+      
+      if (targetScreen) targetScreen.classList.add('active');
+      if (targetBtn) targetBtn.classList.add('active');
+      
+      window.scrollTo(0, 0);
+      updateDashboardData();
+      if (screenId === 'history') renderHistoryList();
+    }
+
+    function handleRateChange(val) {
+      const num = parseFloat(val);
+      appState.rate = num > 0 ? num : 1;
+      saveState();
+      updateDashboardData();
+    }
+
+    function getNormalizedValue(acc) {
+      const bal = parseFloat(acc.balance) || 0;
+      if (acc.category === 'bolivares') {
+        const rate = parseFloat(appState.rate) || 1;
+        return bal / rate;
+      }
+      return bal;
+    }
+
+    function calculateCurrentNetWorth() {
+      let accountsSum = 0;
+      appState.accounts.forEach(acc => {
+        accountsSum += getNormalizedValue(acc);
+      });
+
+      let recTotal = 0, payTotal = 0, conjTotal = 0;
+      appState.debts.forEach(d => {
+        const amt = parseFloat(d.amount) || 0;
+        if (d.type === 'receivable') recTotal += amt;
+        else if (d.type === 'payable') payTotal += amt;
+        else if (d.type === 'conjunto') conjTotal += amt;
+      });
+
+      return accountsSum + recTotal - (payTotal + conjTotal);
+    }
+
+    function toggleFold(foldId) {
+      const el = document.getElementById(foldId);
+      if (el) el.classList.toggle('collapsed');
+    }
+
+    function getTodayString() {
+      const now = new Date();
+      return `${now.getFullYear()}-${String(now.getMonth()+1).padStart(2,'0')}-${String(now.getDate()).padStart(2,'0')}`;
+    }
+
+    function closeTodayBalance() {
+      const currentNet = calculateCurrentNetWorth();
+      const todayStr = getTodayString();
+      
+      const existingIdx = appState.history.findIndex(h => h.date === todayStr);
+      if (existingIdx >= 0) {
+        appState.history[existingIdx].netTotal = currentNet;
+        appState.history[existingIdx].timestamp = Date.now();
+      } else {
+        appState.history.push({
+          date: todayStr,
+          netTotal: currentNet,
+          timestamp: Date.now()
+        });
+      }
+
+      appState.history.sort((a,b) => b.date.localeCompare(a.date));
+      saveState();
+      updateDashboardData();
+      renderHistoryList();
+      alert(`Día cerrado con éxito en: $${currentNet.toFixed(2)}`);
+    }
+
+    function updateDashboardData() {
+      let totals = { usdt: 0, dolares: 0, euros: 0, bolivares: 0 };
+      let accountsSum = 0;
+
+      appState.accounts.forEach(acc => {
+        const norm = getNormalizedValue(acc);
+        if (acc.category === 'usdt') totals.usdt += norm;
+        else if (acc.category === 'dolares_ext' || acc.category === 'dolares_ven') totals.dolares += norm;
+        else if (acc.category === 'euros') totals.euros += norm;
+        else if (acc.category === 'bolivares') totals.bolivares += norm;
+        accountsSum += norm;
+      });
+
+      let recTotal = 0, payTotal = 0, conjTotal = 0;
+      appState.debts.forEach(d => {
+        const amt = parseFloat(d.amount) || 0;
+        if (d.type === 'receivable') recTotal += amt;
+        else if (d.type === 'payable') payTotal += amt;
+        else if (d.type === 'conjunto') conjTotal += amt;
+      });
+
+      const totalPasivo = payTotal + conjTotal;
+      const netWorth = accountsSum + recTotal - totalPasivo;
+      document.getElementById('sumTotal').textContent = `$${netWorth.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+
+      const diffBadge = document.getElementById('diffBadge');
+      const diffText = document.getElementById('diffBadgeText');
+
+      if (appState.history && appState.history.length > 0) {
+        const todayStr = getTodayString();
+        let baseline = appState.history.find(h => h.date !== todayStr);
+        if (!baseline) baseline = appState.history[0];
+
+        const baselineVal = baseline.netTotal;
+        const diff = netWorth - baselineVal;
+        const pct = baselineVal > 0 ? ((diff / baselineVal) * 100).toFixed(1) : 0;
+
+        diffBadge.className = 'diff-pill ' + (diff > 0.001 ? 'diff-up' : (diff < -0.001 ? 'diff-down' : 'diff-zero'));
+        const sign = diff >= 0 ? '+' : '';
+        const icon = diff > 0.001 ? '▲' : (diff < -0.001 ? '▼' : '•');
+        diffText.textContent = `${icon} ${sign}$${diff.toFixed(2)} (${sign}${pct}%) vs. ${baseline.date}`;
+      } else {
+        diffBadge.className = 'diff-pill diff-zero';
+        diffText.textContent = 'Toca "Cerrar Día" para iniciar comparativas';
+      }
+
+      const cats = [
+        { key: 'usdt', label: 'USDT', color: '#F59E0B' },
+        { key: 'dolares', label: 'DÓLARES', color: '#10B981' },
+        { key: 'euros', label: 'EUROS', color: '#6366F1' },
+        { key: 'bolivares', label: 'BOLÍVARES', color: '#EC4899' }
+      ];
+
+      const grossAssets = accountsSum + recTotal;
+
+      cats.forEach(c => {
+        const val = totals[c.key] || 0;
+        const pct = grossAssets > 0 ? ((val / grossAssets) * 100).toFixed(1) : '0';
+        document.getElementById(`catVal-${c.key}`).textContent = `$${val.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+        document.getElementById(`catPct-${c.key}`).textContent = `${pct}% del total`;
+      });
+
+      document.getElementById('catVal-receivable').textContent = `$${recTotal.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+      document.getElementById('catVal-payable').textContent = `$${totalPasivo.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+
+      let chartItems = [
+        { label: 'USDT', val: totals.usdt, color: '#F59E0B' },
+        { label: 'Dólares', val: totals.dolares, color: '#10B981' },
+        { label: 'Euros', val: totals.euros, color: '#6366F1' },
+        { label: 'Bolívares', val: totals.bolivares, color: '#EC4899' },
+        { label: 'Por Cobrar', val: recTotal, color: '#34D399' }
+      ];
+
+      let topAsset = { label: '--', val: 0 };
+      chartItems.forEach(item => {
+        if (item.val > topAsset.val) topAsset = item;
+      });
+
+      document.getElementById('topCatLabel').textContent = topAsset.val > 0 ? topAsset.label : '--';
+      drawDonutChart(chartItems, grossAssets);
+    }
+
+    function drawDonutChart(data, total) {
+      const svg = document.getElementById('donutSvg');
+      while (svg.firstChild) svg.removeChild(svg.firstChild);
+
+      const r = 36;
+      const c = 2 * Math.PI * r;
+
+      if (total <= 0) {
+        const emptyCircle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+        emptyCircle.setAttribute('cx', '50');
+        emptyCircle.setAttribute('cy', '50');
+        emptyCircle.setAttribute('r', r);
+        emptyCircle.setAttribute('fill', 'transparent');
+        emptyCircle.setAttribute('stroke', '#E8DFD3');
+        emptyCircle.setAttribute('stroke-width', '12');
+        svg.appendChild(emptyCircle);
+        return;
+      }
+
+      let accumulated = 0;
+      data.forEach(item => {
+        if (item.val <= 0) return;
+        const pct = item.val / total;
+        const length = pct * c;
+        const offset = -(accumulated * c);
+
+        const circle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+        circle.setAttribute('cx', '50');
+        circle.setAttribute('cy', '50');
+        circle.setAttribute('r', r);
+        circle.setAttribute('fill', 'transparent');
+        circle.setAttribute('stroke', item.color);
+        circle.setAttribute('stroke-width', '12');
+        circle.setAttribute('stroke-dasharray', `${length} ${c - length}`);
+        circle.setAttribute('stroke-dashoffset', offset);
+        svg.appendChild(circle);
+
+        accumulated += pct;
+      });
+    }
+
+    function renderAccountsList() {
+      const containerAcc = document.getElementById('accountsWrapper');
+      containerAcc.innerHTML = '';
+
+      const categoriesConfig = [
+        {
+          id: 'fold_usdt',
+          title: 'USDT (Binance)',
+          color: 'var(--accent-binance)',
+          subSections: [ { label: 'Cuentas Binance / USDT', key: 'usdt' } ]
+        },
+        {
+          id: 'fold_dolares',
+          title: 'Dólares ($)',
+          color: 'var(--accent-usd)',
+          subSections: [
+            { label: 'Cuentas en el Extranjero', key: 'dolares_ext' },
+            { label: 'Divisas en Bancos Venezolanos', key: 'dolares_ven' }
+          ]
+        },
+        {
+          id: 'fold_euros',
+          title: 'Euros (€) [Paridad 1:1]',
+          color: 'var(--accent-eur)',
+          subSections: [ { label: 'Cuentas en Euros', key: 'euros' } ]
+        },
+        {
+          id: 'fold_bolivares',
+          title: `Bolívares [÷ ${appState.rate} = USDT]`,
+          color: 'var(--accent-ves)',
+          subSections: [ { label: 'Bancos Nacionales', key: 'bolivares' } ]
+        }
+      ];
+
+      categoriesConfig.forEach(cat => {
+        const box = document.createElement('div');
+        box.className = 'fold-box';
+        box.id = cat.id;
+
+        let contentHtml = '';
+
+        cat.subSections.forEach(sub => {
+          const list = appState.accounts.filter(a => a.category === sub.key);
+          contentHtml += `
+            <div class="sub-section-header">
+              <span>${sub.label}</span>
+              <button class="btn-sub-add" onclick="openAddAccountToCategory('${sub.key}')">+ Añadir</button>
+            </div>
+          `;
+
+          list.forEach(acc => {
+            let iconHtml = acc.customImage ? `<img src="${acc.customImage}">` : BANK_SVG;
+            let deleteBtnHtml = acc.isFixed 
+              ? `<span style="font-size:0.7rem;color:var(--text-muted);font-weight:700;padding:0 0.3rem;" title="Cuenta fija obligatoria">🔒</span>` 
+              : `<button class="btn-action-icon btn-del" onclick="askDeleteAccount('${acc.id}', '${acc.name}')">✕</button>`;
+
+            contentHtml += `
+              <div class="account-item">
+                <div class="acc-left">
+                  <button class="acc-icon-btn" onclick="openPicUploader('${acc.id}')" title="Toca para subir logo">
+                    ${iconHtml}
+                  </button>
+                  <div class="acc-name" onclick="openEditAccountName('${acc.id}', '${acc.name}')" title="Toca para editar nombre">
+                    ${acc.name} ✎
+                  </div>
+                </div>
+                <div class="acc-right">
+                  <input class="acc-input" type="number" step="any" value="${acc.balance}" oninput="changeBalance('${acc.id}', this.value)">
+                  ${deleteBtnHtml}
+                </div>
+              </div>
+            `;
+          });
+        });
+
+        box.innerHTML = `
+          <div class="fold-header" style="color: ${cat.color};" onclick="toggleFold('${cat.id}')">
+            <div class="fold-header-left">
+              <span class="fold-header-arrow">▼</span>
+              <span>${cat.title}</span>
+            </div>
+          </div>
+          <div class="fold-body">${contentHtml}</div>
+        `;
+
+        containerAcc.appendChild(box);
+      });
+    }
+
+    function openEditAccountName(id, currentName) {
+      document.getElementById('editAccId').value = id;
+      document.getElementById('editAccNameInput').value = currentName;
+      openModal('modalEditAccName');
+    }
+
+    function confirmEditAccName() {
+      const id = document.getElementById('editAccId').value;
+      const newName = document.getElementById('editAccNameInput').value.trim();
+      if (!newName) return alert('El nombre no puede estar vacío');
+      const acc = appState.accounts.find(a => a.id === id);
+      if (acc) {
+        acc.name = newName;
+        saveState();
+        renderAccountsList();
+      }
+      closeModal('modalEditAccName');
+    }
+
+    function openAddAccountToCategory(catKey) {
+      document.getElementById('newAccCategory').value = catKey;
+      openModal('modalAccount');
+    }
+
+    function openPicUploader(id) {
+      selectedUploadId = id;
+      document.getElementById('picUploadInput').click();
+    }
+
+    function handlePicUploaded(e) {
+      const file = e.target.files[0];
+      if (!file) return;
+
+      const reader = new FileReader();
+      reader.onload = function(event) {
+        const img = new Image();
+        img.onload = function() {
+          const canvas = document.createElement('canvas');
+          canvas.width = 80;
+          canvas.height = 80;
+          const ctx = canvas.getContext('2d');
+          ctx.drawImage(img, 0, 0, 80, 80);
+          const dataUrl = canvas.toDataURL('image/png', 0.85);
+
+          const acc = appState.accounts.find(a => a.id === selectedUploadId);
+          if (acc) {
+            acc.customImage = dataUrl;
+            saveState();
+            renderAccountsList();
+          }
+        };
+        img.src = event.target.result;
+      };
+      reader.readAsDataURL(file);
+      e.target.value = '';
+    }
+
+    function changeBalance(id, val) {
+      const acc = appState.accounts.find(a => a.id === id);
+      if (acc) {
+        acc.balance = parseFloat(val) || 0;
+        saveState();
+        updateDashboardData();
+      }
+    }
+
+    function askDeleteAccount(id, name) {
+      document.getElementById('deleteConfirmText').textContent = `¿Seguro que deseas eliminar "${name}"? Esta acción no se puede deshacer.`;
+      pendingDeleteAction = () => {
+        appState.accounts = appState.accounts.filter(a => a.id !== id);
+        saveState();
+        renderAccountsList();
+        updateDashboardData();
+      };
+      openModal('modalConfirmDelete');
+    }
+
+    function renderDebtsList() {
+      let recTotal = 0, payTotal = 0, conjTotal = 0;
+      const recBox = document.getElementById('body-rec');
+      const payBox = document.getElementById('body-pay');
+      const conjBox = document.getElementById('body-conjunto');
+
+      recBox.innerHTML = '';
+      payBox.innerHTML = '';
+      conjBox.innerHTML = '';
+
+      appState.debts.forEach(d => {
+        const amt = parseFloat(d.amount) || 0;
+        const deleteBtnHtml = d.isFixed
+          ? `<span style="font-size:0.7rem;color:var(--text-muted);font-weight:700;padding:0 0.3rem;" title="Registro fijo obligatorio">🔒</span>`
+          : `<button class="btn-action-icon btn-del" onclick="askDeleteDebt('${d.id}', '${d.person}')">✕</button>`;
+
+        const row = document.createElement('div');
+        row.className = 'debt-row';
+        row.innerHTML = `
+          <div class="debt-person" onclick="openEditDebt('${d.id}')" title="Toca para editar">
+            ${d.person} ✎
+          </div>
+          <div style="display:flex; align-items:center; gap:0.4rem;">
+            <input class="acc-input" type="number" step="any" value="${amt}" oninput="changeDebtAmount('${d.id}', this.value)">
+            <button class="btn-action-icon btn-edit" onclick="openEditDebt('${d.id}')" title="Editar nombre o tipo">⚙</button>
+            ${deleteBtnHtml}
+          </div>
+        `;
+
+        if (d.type === 'receivable') {
+          recTotal += amt;
+          recBox.appendChild(row);
+        } else if (d.type === 'payable') {
+          payTotal += amt;
+          payBox.appendChild(row);
+        } else if (d.type === 'conjunto') {
+          conjTotal += amt;
+          conjBox.appendChild(row);
+        }
+      });
+
+      if (recBox.innerHTML === '') recBox.innerHTML = '<p style="color:var(--text-muted);font-size:0.75rem;padding:0.4rem 0;">No tienes cobros pendientes.</p>';
+      if (payBox.innerHTML === '') payBox.innerHTML = '<p style="color:var(--text-muted);font-size:0.75rem;padding:0.4rem 0;">No tienes deudas registradas.</p>';
+      if (conjBox.innerHTML === '') conjBox.innerHTML = '<p style="color:var(--text-muted);font-size:0.75rem;padding:0.4rem 0;">Al día con el conjunto.</p>';
+
+      document.getElementById('debtReceivableTotal').textContent = `$${recTotal.toLocaleString('en-US', { minimumFractionDigits: 2 })}`;
+      document.getElementById('debtPayableTotal').textContent = `$${payTotal.toLocaleString('en-US', { minimumFractionDigits: 2 })}`;
+      document.getElementById('debtConjuntoTotal').textContent = `$${conjTotal.toLocaleString('en-US', { minimumFractionDigits: 2 })}`;
+    }
+
+    function changeDebtAmount(id, val) {
+      const d = appState.debts.find(item => item.id === id);
+      if (d) {
+        d.amount = parseFloat(val) || 0;
+        saveState();
+        updateDashboardData();
+      }
+    }
+
+    function openAddDebtModal() {
+      document.getElementById('debtModalTitle').textContent = 'Nuevo Registro';
+      document.getElementById('editDebtId').value = '';
+      document.getElementById('newDebtPerson').value = '';
+      document.getElementById('newDebtAmount').value = '0';
+      document.getElementById('newDebtType').value = 'receivable';
+      openModal('modalDebt');
+    }
+
+    function openEditDebt(id) {
+      const d = appState.debts.find(item => item.id === id);
+      if (!d) return;
+      document.getElementById('debtModalTitle').textContent = 'Modificar Registro';
+      document.getElementById('editDebtId').value = d.id;
+      document.getElementById('newDebtPerson').value = d.person;
+      document.getElementById('newDebtAmount').value = d.amount;
+      document.getElementById('newDebtType').value = d.type;
+      openModal('modalDebt');
+    }
+
+    function saveDebt() {
+      const editId = document.getElementById('editDebtId').value;
+      const type = document.getElementById('newDebtType').value;
+      const person = document.getElementById('newDebtPerson').value.trim();
+      const amount = parseFloat(document.getElementById('newDebtAmount').value) || 0;
+
+      if (!person) return alert('Ingresa el nombre o concepto');
+
+      if (editId) {
+        const d = appState.debts.find(item => item.id === editId);
+        if (d) {
+          d.person = person;
+          d.amount = amount;
+          d.type = type;
+        }
+      } else {
+        appState.debts.push({
+          id: Date.now().toString(),
+          type: type,
+          person: person,
+          amount: amount,
+          isFixed: false
+        });
+      }
+
+      closeModal('modalDebt');
+      saveState();
+      renderDebtsList();
+      updateDashboardData();
+    }
+
+    function askDeleteDebt(id, person) {
+      document.getElementById('deleteConfirmText').textContent = `¿Seguro que deseas eliminar "${person}"? Esta acción no se puede deshacer.`;
+      pendingDeleteAction = () => {
+        appState.debts = appState.debts.filter(d => d.id !== id);
+        saveState();
+        renderDebtsList();
+        updateDashboardData();
+      };
+      openModal('modalConfirmDelete');
+    }
+
+    document.getElementById('btnExecuteDelete').onclick = function() {
+      if (pendingDeleteAction) pendingDeleteAction();
+      closeModal('modalConfirmDelete');
+      pendingDeleteAction = null;
+    };
+
+    function saveAccount() {
+      const cat = document.getElementById('newAccCategory').value;
+      const name = document.getElementById('newAccName').value.trim();
+      const bal = parseFloat(document.getElementById('newAccBal').value) || 0;
+
+      if (!name) return alert('Ingresa un nombre para la cuenta');
+
+      appState.accounts.push({
+        id: Date.now().toString(),
+        category: cat,
+        name: name,
+        balance: bal,
+        isFixed: false,
+        customImage: null
+      });
+
+      closeModal('modalAccount');
+      document.getElementById('newAccName').value = '';
+      document.getElementById('newAccBal').value = '0';
+      saveState();
+      renderAccountsList();
+      updateDashboardData();
+    }
+
+    function renderHistoryList() {
+      const container = document.getElementById('historyListContainer');
+      container.innerHTML = '';
+
+      if (!appState.history || appState.history.length === 0) {
+        container.innerHTML = '<p style="color:var(--text-muted);font-size:0.85rem;text-align:center;padding:2rem 0;">Aún no tienes cierres diarios guardados.<br>Usa el botón "+ Cerrar Hoy" para comenzar.</p>';
+        return;
+      }
+
+      for (let i = 0; i < appState.history.length; i++) {
+        const item = appState.history[i];
+        const prevItem = appState.history[i + 1];
+
+        let diffHtml = '';
+        if (prevItem) {
+          const diff = item.netTotal - prevItem.netTotal;
+          const sign = diff >= 0 ? '+' : '';
+          const color = diff > 0.001 ? 'var(--success)' : (diff < -0.001 ? 'var(--danger)' : 'var(--text-muted)');
+          diffHtml = `<div class="history-diff" style="color:${color};">${sign}$${diff.toFixed(2)}</div>`;
+        } else {
+          diffHtml = `<div class="history-diff" style="color:var(--text-muted);">Cierre Inicial</div>`;
+        }
+
+        const card = document.createElement('div');
+        card.className = 'history-card';
+        card.innerHTML = `
+          <div>
+            <div class="history-date">${item.date}</div>
+            <div class="history-sub">${new Date(item.timestamp || Date.now()).toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}</div>
+          </div>
+          <div class="history-val">
+            <div class="history-amount">$${item.netTotal.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</div>
+            ${diffHtml}
+          </div>
+        `;
+        container.appendChild(card);
+      }
+    }
+
+    function openModal(id) { document.getElementById(id).classList.add('active'); }
+    function closeModal(id) { document.getElementById(id).classList.remove('active'); }
+
+    (function init() {
+      loadAndSanitizeData();
+      document.getElementById('globalRate').value = appState.rate;
+      renderAccountsList();
+      renderDebtsList();
+      updateDashboardData();
+    })();
+  </script>
+</body>
+</html>
