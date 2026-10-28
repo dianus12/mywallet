@@ -114,7 +114,7 @@
 
     .hero-balance {
       text-align: center;
-      padding: 1rem 0 0.6rem;
+      padding: 0.8rem 0 0.5rem;
     }
 
     .hero-label {
@@ -126,19 +126,57 @@
     }
 
     .hero-amount {
-      font-size: 2.4rem;
+      font-size: 2.35rem;
       font-weight: 800;
       letter-spacing: -0.03em;
       line-height: 1.1;
       color: var(--purple);
-      margin: 0.2rem 0;
+      margin: 0.15rem 0;
+    }
+
+    /* DIFERENCIA Y CIERRE DEL DÍA */
+    .diff-badge-wrap {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      margin: 0.4rem 0 0.8rem;
+    }
+
+    .diff-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      padding: 0.3rem 0.65rem;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 800;
+      cursor: pointer;
+    }
+
+    .diff-up { background: #ECFDF5; color: var(--success); border: 1px solid #A7F3D0; }
+    .diff-down { background: #FFF1F2; color: var(--danger); border: 1px solid #FECDD3; }
+    .diff-zero { background: var(--card-subtle); color: var(--text-muted); border: 1px solid var(--border); }
+
+    .btn-close-day {
+      background: var(--lilac-soft);
+      border: 1px solid var(--purple);
+      color: var(--purple);
+      padding: 0.3rem 0.65rem;
+      border-radius: 20px;
+      font-size: 0.72rem;
+      font-weight: 800;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
     }
 
     .chart-box {
       position: relative;
-      width: 200px;
-      height: 200px;
-      margin: 0.8rem auto 1.2rem;
+      width: 195px;
+      height: 195px;
+      margin: 0.4rem auto 1rem;
     }
 
     .chart-box svg {
@@ -165,7 +203,7 @@
     }
 
     .chart-center-val strong {
-      font-size: 1rem;
+      font-size: 0.95rem;
       font-weight: 800;
       color: var(--text-main);
     }
@@ -173,18 +211,18 @@
     .distribution-list {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 0.6rem;
-      margin-top: 0.6rem;
+      gap: 0.55rem;
+      margin-top: 0.5rem;
     }
 
     .dist-card {
       background: var(--card);
       border: 1px solid var(--border);
       border-radius: 14px;
-      padding: 0.75rem 0.85rem;
+      padding: 0.7rem 0.8rem;
       display: flex;
       flex-direction: column;
-      gap: 0.2rem;
+      gap: 0.15rem;
     }
 
     .dist-card-top {
@@ -204,7 +242,7 @@
     }
 
     .dist-card-val {
-      font-size: 1.05rem;
+      font-size: 1rem;
       font-weight: 800;
       color: var(--text-main);
     }
@@ -215,7 +253,7 @@
       font-weight: 600;
     }
 
-    /* ACORDEONES PLEGABLES PARA CUENTAS Y DEUDAS */
+    /* ACORDEONES PLEGABLES */
     .fold-box {
       background: var(--card);
       border: 1px solid var(--border);
@@ -347,10 +385,6 @@
       outline: none;
     }
 
-    .acc-input:focus {
-      border-color: var(--purple);
-    }
-
     .btn-action-icon {
       background: transparent;
       border: none;
@@ -405,7 +439,46 @@
       cursor: pointer;
     }
 
-    /* BARRA INFERIOR FIJA */
+    /* HISTORIAL PESTAÑA */
+    .history-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 0.8rem 0.9rem;
+      margin-bottom: 0.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .history-date {
+      font-size: 0.8rem;
+      font-weight: 800;
+      color: var(--text-main);
+    }
+
+    .history-sub {
+      font-size: 0.7rem;
+      color: var(--text-muted);
+      margin-top: 0.15rem;
+    }
+
+    .history-val {
+      text-align: right;
+    }
+
+    .history-amount {
+      font-size: 0.95rem;
+      font-weight: 800;
+    }
+
+    .history-diff {
+      font-size: 0.72rem;
+      font-weight: 800;
+      margin-top: 0.1rem;
+    }
+
+    /* BARRA INFERIOR FIJA CON 4 PESTAÑAS */
     .bottom-nav {
       position: fixed;
       bottom: 0;
@@ -428,7 +501,7 @@
       flex-direction: column;
       align-items: center;
       gap: 0.2rem;
-      font-size: 0.68rem;
+      font-size: 0.65rem;
       font-weight: 800;
       cursor: pointer;
       flex: 1;
@@ -437,8 +510,8 @@
     }
 
     .nav-btn svg {
-      width: 22px;
-      height: 22px;
+      width: 20px;
+      height: 20px;
       fill: currentColor;
     }
 
@@ -561,7 +634,16 @@
     <div class="hero-balance">
       <div class="hero-label">Patrimonio Global Neto</div>
       <div class="hero-amount" id="sumTotal">$0.00</div>
-      <small style="color:var(--text-muted);font-size:0.75rem;font-weight:600;">(Cuentas + Por Cobrar - Por Pagar)</small>
+      
+      <!-- INDICADOR DE VARIACIÓN RESPECTO AL ÚLTIMO CIERRE -->
+      <div class="diff-badge-wrap">
+        <div class="diff-pill diff-zero" id="diffBadge" onclick="switchTab('history')">
+          <span id="diffBadgeText">Sin cierre previo</span>
+        </div>
+        <button class="btn-close-day" onclick="closeTodayBalance()">
+          <span>✓ Cerrar Día</span>
+        </button>
+      </div>
     </div>
 
     <div class="chart-box">
@@ -629,7 +711,7 @@
     </div>
   </main>
 
-  <!-- PANTALLA 2: CUENTAS (DESPLEGABLES POR CATEGORÍA) -->
+  <!-- PANTALLA 2: CUENTAS -->
   <main id="view-editor" class="app-screen">
     <button class="btn-primary-block" onclick="openModal('modalAccount')">
       + Añadir Cuenta o Banco Personalizado
@@ -637,13 +719,12 @@
     <div id="accountsWrapper"></div>
   </main>
 
-  <!-- PANTALLA 3: DEUDAS Y COBROS (CON MODIFICACIÓN Y CONJUNTO APARTE) -->
+  <!-- PANTALLA 3: DEUDAS Y COBROS -->
   <main id="view-debts" class="app-screen">
     <button class="btn-primary-block" onclick="openAddDebtModal()">
       + Añadir Nuevo Registro
     </button>
 
-    <!-- 1. ME DEBEN -->
     <div class="fold-box" id="fold-rec">
       <div class="fold-header" style="color: var(--success);" onclick="toggleFold('fold-rec')">
         <div class="fold-header-left">
@@ -655,7 +736,6 @@
       <div class="fold-body" id="body-rec"></div>
     </div>
 
-    <!-- 2. YO DEBO (PERSONAS) -->
     <div class="fold-box" id="fold-pay">
       <div class="fold-header" style="color: var(--danger);" onclick="toggleFold('fold-pay')">
         <div class="fold-header-left">
@@ -667,7 +747,6 @@
       <div class="fold-body" id="body-pay"></div>
     </div>
 
-    <!-- 3. CONJUNTO / CONDOMINIO (SEPARADO VISUALMENTE) -->
     <div class="fold-box" id="fold-conjunto" style="border: 1.5px solid var(--purple);">
       <div class="fold-header" style="color: var(--purple);" onclick="toggleFold('fold-conjunto')">
         <div class="fold-header-left">
@@ -680,7 +759,16 @@
     </div>
   </main>
 
-  <!-- BARRA DE NAVEGACIÓN INFERIOR -->
+  <!-- PANTALLA 4: HISTORIAL DE CIERRES -->
+  <main id="view-history" class="app-screen">
+    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1rem;">
+      <h3 style="font-size:1.05rem; font-weight:800;">Historial de Cierres Diarios</h3>
+      <button class="btn-sub-add" onclick="closeTodayBalance()">+ Cerrar Hoy</button>
+    </div>
+    <div id="historyListContainer"></div>
+  </main>
+
+  <!-- BARRA DE NAVEGACIÓN INFERIOR (4 PESTAÑAS) -->
   <nav class="bottom-nav">
     <button class="nav-btn active" id="btn-tab-dashboard" onclick="switchTab('dashboard')">
       <svg viewBox="0 0 24 24"><path d="M11 2v20c-5.07-.5-9-4.79-9-10s3.93-9.5 9-10zm2 0v8.99L21.95 7.4C20.48 4.23 17.06 2.21 13 2zm0 11.01V22c4.06-.21 7.48-2.23 8.95-5.4L13 13.01z"/></svg>
@@ -693,6 +781,10 @@
     <button class="nav-btn" id="btn-tab-debts" onclick="switchTab('debts')">
       <svg viewBox="0 0 24 24"><path d="M16 17.01V10h-2v7.01h-3L15 21l4-3.99h-3zM9 3L5 6.99h3V14h2V6.99h3L9 3z"/></svg>
       <span>Deudas</span>
+    </button>
+    <button class="nav-btn" id="btn-tab-history" onclick="switchTab('history')">
+      <svg viewBox="0 0 24 24"><path d="M13 3a9 9 0 0 0-9 9H1l3.89 3.89.07.14L9 12H6c0-3.87 3.13-7 7-7s7 3.13 7 7-3.13 7-7 7c-1.93 0-3.68-.79-4.94-2.06l-1.42 1.42A8.954 8.954 0 0 0 13 21a9 9 0 0 0 0-18zm-1 5v5l4.28 2.54.72-1.21-3.5-2.08V8H12z"/></svg>
+      <span>Historial</span>
     </button>
   </nav>
 
@@ -715,7 +807,7 @@
       </div>
       <div class="form-group">
         <label>Nombre de la Cuenta / Banco</label>
-        <input type="text" id="newAccName" placeholder="Ej: Nueva Subcuenta Binance...">
+        <input type="text" id="newAccName" placeholder="Ej: Nueva Subcuenta...">
       </div>
       <div class="form-group">
         <label>Saldo Inicial</label>
@@ -787,46 +879,37 @@
   <script>
     const BANK_SVG = `<svg viewBox="0 0 24 24"><path d="M4 10v7h3v-7H4zm6 0v7h3v-7h-3zm8 0v7h3v-7h-3zM2 22h19v-3H2v3zm9.5-20L2 7v2h19V7l-9.5-5z"/></svg>`;
 
-    // Estructura predeterminada con bloqueos de borrado (isFixed: true)
     const initialAccounts = [
-      // 1. USDT
       { id: 'fix_binance', category: 'usdt', name: 'Binance', balance: 0, isFixed: true, customImage: null },
-      // 2. Dólares en el Extranjero
       { id: 'fix_wf', category: 'dolares_ext', name: 'Wells Fargo / Zelle', balance: 0, isFixed: true, customImage: null },
       { id: 'fix_bpa', category: 'dolares_ext', name: 'Banesco Panamá', balance: 0, isFixed: true, customImage: null },
       { id: 'fix_zinli', category: 'dolares_ext', name: 'Zinli', balance: 0, isFixed: true, customImage: null },
       { id: 'fix_usd_efec', category: 'dolares_ext', name: 'Dólares en Efectivo', balance: 0, isFixed: true, customImage: null },
-      // 2b. Divisas en Bancos Venezolanos
       { id: 'fix_bdv', category: 'dolares_ven', name: 'Banco de Venezuela', balance: 0, isFixed: true, customImage: null },
       { id: 'fix_tesoro', category: 'dolares_ven', name: 'Banco del Tesoro', balance: 0, isFixed: true, customImage: null },
       { id: 'fix_banesco', category: 'dolares_ven', name: 'Banesco', balance: 0, isFixed: true, customImage: null },
       { id: 'fix_bnc', category: 'dolares_ven', name: 'BNC (Banco Nacional de Crédito)', balance: 0, isFixed: true, customImage: null },
-      // 3. Euros
       { id: 'fix_eur_efec', category: 'euros', name: 'Euros en Efectivo', balance: 0, isFixed: true, customImage: null },
       { id: 'fix_caixa', category: 'euros', name: 'CaixaBank', balance: 0, isFixed: true, customImage: null },
       { id: 'fix_bbva', category: 'euros', name: 'BBVA', balance: 0, isFixed: true, customImage: null },
-      // 4. Bolívares
       { id: 'fix_ves_nac', category: 'bolivares', name: 'Bancos Nacionales (Bs)', balance: 0, isFixed: true, customImage: null }
     ];
 
-    // Deudas fijas protegidas
     const initialDebts = [
-      // Me deben
       { id: 'fix_d_andres', person: 'Andrés', amount: 0, type: 'receivable', isFixed: true },
       { id: 'fix_d_mami', person: 'Mami', amount: 0, type: 'receivable', isFixed: true },
       { id: 'fix_d_bot_rec', person: 'Bot', amount: 0, type: 'receivable', isFixed: true },
-      // Yo debo
       { id: 'fix_d_andres_pay', person: 'Andrés', amount: 500, type: 'payable', isFixed: true },
       { id: 'fix_d_bot_pay', person: 'Bot', amount: 0, type: 'payable', isFixed: true },
       { id: 'fix_d_mulas', person: 'Mulas', amount: 0, type: 'payable', isFixed: true },
-      // Conjunto aparte
       { id: 'fix_d_conjunto', person: 'Conjunto / Condominio', amount: 0, type: 'conjunto', isFixed: true }
     ];
 
     let appState = {
       rate: 1007,
       accounts: initialAccounts,
-      debts: initialDebts
+      debts: initialDebts,
+      history: [] // { date: 'YYYY-MM-DD', netTotal: 1000, timestamp: 123456789 }
     };
 
     let selectedUploadId = null;
@@ -834,20 +917,18 @@
 
     function loadAndSanitizeData() {
       try {
-        const stored = localStorage.getItem('my_wallets_v6');
+        const stored = localStorage.getItem('my_wallets_v7');
         if (stored) {
           const parsed = JSON.parse(stored);
           if (parsed && typeof parsed === 'object') {
             if (parsed.rate) appState.rate = parseFloat(parsed.rate) || 1007;
             
             if (Array.isArray(parsed.accounts) && parsed.accounts.length > 0) {
-              // Fusionar respetando los items fijos
               const existingMap = new Map(parsed.accounts.map(a => [a.id, a]));
               appState.accounts = initialAccounts.map(fix => {
                 const found = existingMap.get(fix.id);
                 return found ? { ...fix, balance: found.balance || 0, name: found.name || fix.name, customImage: found.customImage || null } : fix;
               });
-              // Añadir las adicionales del usuario
               parsed.accounts.forEach(a => {
                 if (!initialAccounts.some(fix => fix.id === a.id)) {
                   appState.accounts.push(a);
@@ -867,16 +948,20 @@
                 }
               });
             }
+
+            if (Array.isArray(parsed.history)) {
+              appState.history = parsed.history;
+            }
           }
         }
       } catch(e) {
-        console.warn('Iniciando estructura blindada limpia');
+        console.warn('Iniciando estructura limpia');
       }
     }
 
     function saveState() {
       try {
-        localStorage.setItem('my_wallets_v6', JSON.stringify(appState));
+        localStorage.setItem('my_wallets_v7', JSON.stringify(appState));
       } catch(e) {}
     }
 
@@ -892,6 +977,7 @@
       
       window.scrollTo(0, 0);
       updateDashboardData();
+      if (screenId === 'history') renderHistoryList();
     }
 
     function handleRateChange(val) {
@@ -910,9 +996,56 @@
       return bal;
     }
 
+    function calculateCurrentNetWorth() {
+      let accountsSum = 0;
+      appState.accounts.forEach(acc => {
+        accountsSum += getNormalizedValue(acc);
+      });
+
+      let recTotal = 0, payTotal = 0, conjTotal = 0;
+      appState.debts.forEach(d => {
+        const amt = parseFloat(d.amount) || 0;
+        if (d.type === 'receivable') recTotal += amt;
+        else if (d.type === 'payable') payTotal += amt;
+        else if (d.type === 'conjunto') conjTotal += amt;
+      });
+
+      return accountsSum + recTotal - (payTotal + conjTotal);
+    }
+
     function toggleFold(foldId) {
       const el = document.getElementById(foldId);
       if (el) el.classList.toggle('collapsed');
+    }
+
+    // CIERRE DIARIO Y COMPARACIÓN
+    function getTodayString() {
+      const now = new Date();
+      return `${now.getFullYear()}-${String(now.getMonth()+1).padStart(2,'0')}-${String(now.getDate()).padStart(2,'0')}`;
+    }
+
+    function closeTodayBalance() {
+      const currentNet = calculateCurrentNetWorth();
+      const todayStr = getTodayString();
+      
+      const existingIdx = appState.history.findIndex(h => h.date === todayStr);
+      if (existingIdx >= 0) {
+        appState.history[existingIdx].netTotal = currentNet;
+        appState.history[existingIdx].timestamp = Date.now();
+      } else {
+        appState.history.push({
+          date: todayStr,
+          netTotal: currentNet,
+          timestamp: Date.now()
+        });
+      }
+
+      // Ordenar por fecha descendente
+      appState.history.sort((a,b) => b.date.localeCompare(a.date));
+      saveState();
+      updateDashboardData();
+      renderHistoryList();
+      alert(`Día cerrado exitosamente en: $${currentNet.toFixed(2)}`);
     }
 
     function updateDashboardData() {
@@ -939,6 +1072,31 @@
       const totalPasivo = payTotal + conjTotal;
       const netWorth = accountsSum + recTotal - totalPasivo;
       document.getElementById('sumTotal').textContent = `$${netWorth.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+
+      // COMPARATIVA CONTRA EL ÚLTIMO CIERRE
+      const diffBadge = document.getElementById('diffBadge');
+      const diffText = document.getElementById('diffBadgeText');
+
+      if (appState.history && appState.history.length > 0) {
+        const todayStr = getTodayString();
+        // Buscar el último cierre anterior al estado actual
+        let baseline = appState.history.find(h => h.date !== todayStr);
+        if (!baseline) {
+          baseline = appState.history[0]; // Si solo hay cierre de hoy
+        }
+
+        const baselineVal = baseline.netTotal;
+        const diff = netWorth - baselineVal;
+        const pct = baselineVal > 0 ? ((diff / baselineVal) * 100).toFixed(1) : 0;
+
+        diffBadge.className = 'diff-pill ' + (diff > 0.001 ? 'diff-up' : (diff < -0.001 ? 'diff-down' : 'diff-zero'));
+        const sign = diff >= 0 ? '+' : '';
+        const icon = diff > 0.001 ? '▲' : (diff < -0.001 ? '▼' : '•');
+        diffText.textContent = `${icon} ${sign}$${diff.toFixed(2)} (${sign}${pct}%) vs. ${baseline.date}`;
+      } else {
+        diffBadge.className = 'diff-pill diff-zero';
+        diffText.textContent = 'Toca "Cerrar Día" para iniciar comparativas';
+      }
 
       const cats = [
         { key: 'usdt', label: 'USDT', color: '#F59E0B' },
@@ -1017,7 +1175,6 @@
       });
     }
 
-    // RENDERIZAR CUENTAS CON ACORDEONES PLEGABLES
     function renderAccountsList() {
       const containerAcc = document.getElementById('accountsWrapper');
       containerAcc.innerHTML = '';
@@ -1027,9 +1184,7 @@
           id: 'fold_usdt',
           title: 'USDT (Binance)',
           color: 'var(--accent-binance)',
-          subSections: [
-            { label: 'Cuentas Binance / USDT', key: 'usdt' }
-          ]
+          subSections: [ { label: 'Cuentas Binance / USDT', key: 'usdt' } ]
         },
         {
           id: 'fold_dolares',
@@ -1044,17 +1199,13 @@
           id: 'fold_euros',
           title: 'Euros (€) [Paridad 1:1]',
           color: 'var(--accent-eur)',
-          subSections: [
-            { label: 'Cuentas en Euros', key: 'euros' }
-          ]
+          subSections: [ { label: 'Cuentas en Euros', key: 'euros' } ]
         },
         {
           id: 'fold_bolivares',
           title: `Bolívares [÷ ${appState.rate} = USDT]`,
           color: 'var(--accent-ves)',
-          subSections: [
-            { label: 'Bancos Nacionales', key: 'bolivares' }
-          ]
+          subSections: [ { label: 'Bancos Nacionales', key: 'bolivares' } ]
         }
       ];
 
@@ -1076,7 +1227,6 @@
 
           list.forEach(acc => {
             let iconHtml = acc.customImage ? `<img src="${acc.customImage}">` : BANK_SVG;
-            // Botón de borrar SOLO si no es fija
             let deleteBtnHtml = acc.isFixed 
               ? `<span style="font-size:0.7rem;color:var(--text-muted);font-weight:700;padding:0 0.3rem;" title="Cuenta fija obligatoria">🔒</span>` 
               : `<button class="btn-action-icon btn-del" onclick="askDeleteAccount('${acc.id}', '${acc.name}')">✕</button>`;
@@ -1181,7 +1331,7 @@
     }
 
     function askDeleteAccount(id, name) {
-      document.getElementById('deleteConfirmText').textContent = `¿Seguro que deseas eliminar la cuenta "${name}"? Esta acción no se puede deshacer.`;
+      document.getElementById('deleteConfirmText').textContent = `¿Seguro que deseas eliminar "${name}"? Esta acción no se puede deshacer.`;
       pendingDeleteAction = () => {
         appState.accounts = appState.accounts.filter(a => a.id !== id);
         saveState();
@@ -1191,7 +1341,6 @@
       openModal('modalConfirmDelete');
     }
 
-    // RENDERIZAR DEUDAS Y COBROS (CON CATEGORÍA CONJUNTO SEPARADA)
     function renderDebtsList() {
       let recTotal = 0, payTotal = 0, conjTotal = 0;
       const recBox = document.getElementById('body-rec');
@@ -1303,7 +1452,7 @@
     }
 
     function askDeleteDebt(id, person) {
-      document.getElementById('deleteConfirmText').textContent = `¿Seguro que deseas eliminar el registro de "${person}"? Esta acción no se puede deshacer.`;
+      document.getElementById('deleteConfirmText').textContent = `¿Seguro que deseas eliminar "${person}"? Esta acción no se puede deshacer.`;
       pendingDeleteAction = () => {
         appState.debts = appState.debts.filter(d => d.id !== id);
         saveState();
@@ -1341,6 +1490,46 @@
       saveState();
       renderAccountsList();
       updateDashboardData();
+    }
+
+    // RENDERIZAR PESTAÑA HISTORIAL
+    function renderHistoryList() {
+      const container = document.getElementById('historyListContainer');
+      container.innerHTML = '';
+
+      if (!appState.history || appState.history.length === 0) {
+        container.innerHTML = '<p style="color:var(--text-muted);font-size:0.85rem;text-align:center;padding:2rem 0;">Aún no tienes cierres diarios guardados.<br>Usa el botón "+ Cerrar Hoy" para comenzar.</p>';
+        return;
+      }
+
+      for (let i = 0; i < appState.history.length; i++) {
+        const item = appState.history[i];
+        const prevItem = appState.history[i + 1]; // Anterior cronológicamente
+
+        let diffHtml = '';
+        if (prevItem) {
+          const diff = item.netTotal - prevItem.netTotal;
+          const sign = diff >= 0 ? '+' : '';
+          const color = diff > 0.001 ? 'var(--success)' : (diff < -0.001 ? 'var(--danger)' : 'var(--text-muted)');
+          diffHtml = `<div class="history-diff" style="color:${color};">${sign}$${diff.toFixed(2)}</div>`;
+        } else {
+          diffHtml = `<div class="history-diff" style="color:var(--text-muted);">Cierre Inicial</div>`;
+        }
+
+        const card = document.createElement('div');
+        card.className = 'history-card';
+        card.innerHTML = `
+          <div>
+            <div class="history-date">${item.date}</div>
+            <div class="history-sub">${new Date(item.timestamp || Date.now()).toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}</div>
+          </div>
+          <div class="history-val">
+            <div class="history-amount">$${item.netTotal.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</div>
+            ${diffHtml}
+          </div>
+        `;
+        container.appendChild(card);
+      }
     }
 
     function openModal(id) { document.getElementById(id).classList.add('active'); }
