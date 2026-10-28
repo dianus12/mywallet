@@ -10,10 +10,6 @@
   <meta name="apple-mobile-web-app-title" content="My wallets💜✨">
   <meta name="theme-color" content="#F7F3EE">
 
-  <!-- Ícono con fondo claro y huella morada -->
-  <link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%23F7F3EE'/%3E%3Cg fill='none' stroke='%238B5CF6' stroke-width='5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cellipse cx='27' cy='33' rx='7' ry='12' transform='rotate(-20 27 33)'/%3E%3Cellipse cx='42' cy='24' rx='7' ry='13' transform='rotate(-5 42 24)'/%3E%3Cellipse cx='58' cy='24' rx='7' ry='13' transform='rotate(5 58 24)'/%3E%3Cellipse cx='73' cy='33' rx='7' ry='12' transform='rotate(20 73 33)'/%3E%3Cpath d='M30,55 C22,50 18,65 24,76 C29,85 40,88 50,88 C60,88 71,85 76,76 C82,65 78,50 70,55 C65,58 58,49 50,49 C42,49 35,58 30,55 Z'/%3E%3Cpath d='M50,78 C50,78 40,71 40,64 C40,59 44,57 47,59 C49,60 50,62 50,62 C50,62 51,60 53,59 C56,57 60,59 60,64 C60,71 50,78 50,78 Z'/%3E%3C/g%3E%3C/svg%3E">
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%23F7F3EE'/%3E%3Cg fill='none' stroke='%238B5CF6' stroke-width='5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cellipse cx='27' cy='33' rx='7' ry='12' transform='rotate(-20 27 33)'/%3E%3Cellipse cx='42' cy='24' rx='7' ry='13' transform='rotate(-5 42 24)'/%3E%3Cellipse cx='58' cy='24' rx='7' ry='13' transform='rotate(5 58 24)'/%3E%3Cellipse cx='73' cy='33' rx='7' ry='12' transform='rotate(20 73 33)'/%3E%3Cpath d='M30,55 C22,50 18,65 24,76 C29,85 40,88 50,88 C60,88 71,85 76,76 C82,65 78,50 70,55 C65,58 58,49 50,49 C42,49 35,58 30,55 Z'/%3E%3Cpath d='M50,78 C50,78 40,71 40,64 C40,59 44,57 47,59 C49,60 50,62 50,62 C50,62 51,60 53,59 C56,57 60,59 60,64 C60,71 50,78 50,78 Z'/%3E%3C/g%3E%3C/svg%3E">
-
   <style>
     :root {
       --bg: #F7F3EE;
@@ -23,7 +19,6 @@
       --text-main: #2D2338;
       --text-muted: #847593;
       --purple: #8B5CF6;
-      --purple-dark: #6D28D9;
       --lilac: #D8B4FE;
       --lilac-soft: #F3E8FF;
       --accent-binance: #F59E0B;
@@ -220,25 +215,69 @@
       font-weight: 600;
     }
 
-    .category-block {
-      margin-bottom: 1.2rem;
+    /* ACORDEONES PLEGABLES PARA CUENTAS Y DEUDAS */
+    .fold-box {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      margin-bottom: 0.75rem;
+      overflow: hidden;
     }
 
-    .category-title {
-      font-size: 0.75rem;
+    .fold-header {
+      padding: 0.85rem 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      user-select: none;
+      font-weight: 800;
+      font-size: 0.88rem;
+      background: #FFFFFF;
+    }
+
+    .fold-header-left {
+      display: flex;
+      align-items: center;
+      gap: 0.45rem;
+    }
+
+    .fold-header-arrow {
+      font-size: 0.8rem;
+      transition: transform 0.2s ease;
+      color: var(--text-muted);
+    }
+
+    .fold-box.collapsed .fold-header-arrow {
+      transform: rotate(-90deg);
+    }
+
+    .fold-body {
+      padding: 0 0.85rem 0.85rem;
+    }
+
+    .fold-box.collapsed .fold-body {
+      display: none;
+    }
+
+    .sub-section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.72rem;
       font-weight: 800;
       text-transform: uppercase;
       letter-spacing: 0.05em;
-      margin-bottom: 0.45rem;
-      padding-left: 0.2rem;
+      margin: 0.75rem 0 0.35rem;
+      color: var(--text-muted);
     }
 
     .account-item {
-      background: var(--card);
+      background: var(--bg);
       border: 1px solid var(--border);
       border-radius: 12px;
-      padding: 0.65rem 0.85rem;
-      margin-bottom: 0.45rem;
+      padding: 0.6rem 0.8rem;
+      margin-bottom: 0.4rem;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -254,8 +293,8 @@
     }
 
     .acc-icon-btn {
-      width: 34px;
-      height: 34px;
+      width: 32px;
+      height: 32px;
       border-radius: 8px;
       display: flex;
       align-items: center;
@@ -281,11 +320,12 @@
     }
 
     .acc-name {
-      font-size: 0.85rem;
+      font-size: 0.84rem;
       font-weight: 700;
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
+      cursor: pointer;
     }
 
     .acc-right {
@@ -295,10 +335,10 @@
     }
 
     .acc-input {
-      background: var(--bg);
+      background: #FFFFFF;
       border: 1px solid var(--border);
       color: var(--text-main);
-      padding: 0.45rem 0.6rem;
+      padding: 0.4rem 0.55rem;
       border-radius: 8px;
       width: 105px;
       text-align: right;
@@ -311,51 +351,25 @@
       border-color: var(--purple);
     }
 
-    .btn-icon {
+    .btn-action-icon {
       background: transparent;
       border: none;
-      color: var(--danger);
       cursor: pointer;
+      padding: 0.25rem;
+      font-size: 0.85rem;
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 0.35rem;
-      font-weight: 800;
     }
 
-    /* DEUDAS DESPLEGABLES */
-    .debt-card-fold {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      margin-bottom: 0.85rem;
-      overflow: hidden;
-    }
-
-    .debt-card-header {
-      padding: 0.85rem 1rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-weight: 800;
-      cursor: pointer;
-      user-select: none;
-      font-size: 0.88rem;
-    }
-
-    .debt-card-body {
-      padding: 0 0.85rem 0.85rem;
-    }
-
-    .debt-card-body.hidden {
-      display: none;
-    }
+    .btn-edit { color: var(--purple); }
+    .btn-del { color: var(--danger); font-weight: 800; }
 
     .debt-row {
       background: var(--bg);
       border: 1px solid var(--border);
       border-radius: 10px;
-      padding: 0.65rem 0.8rem;
+      padding: 0.6rem 0.8rem;
       margin-top: 0.45rem;
       display: flex;
       align-items: center;
@@ -377,10 +391,21 @@
       font-weight: 800;
       font-size: 0.85rem;
       cursor: pointer;
-      margin-bottom: 1rem;
+      margin-bottom: 0.9rem;
     }
 
-    /* BARRA INFERIOR FIJA GARANTIZADA */
+    .btn-sub-add {
+      background: var(--lilac-soft);
+      border: 1px dashed var(--purple);
+      color: var(--purple);
+      border-radius: 8px;
+      font-size: 0.7rem;
+      font-weight: 800;
+      padding: 0.2rem 0.5rem;
+      cursor: pointer;
+    }
+
+    /* BARRA INFERIOR FIJA */
     .bottom-nav {
       position: fixed;
       bottom: 0;
@@ -446,7 +471,7 @@
 
     .modal-box h4 {
       font-size: 1rem;
-      margin-bottom: 1rem;
+      margin-bottom: 0.85rem;
       font-weight: 800;
     }
 
@@ -499,6 +524,11 @@
       background: var(--purple);
       color: #fff;
     }
+
+    .btn-danger-confirm {
+      background: var(--danger);
+      color: #fff;
+    }
   </style>
 </head>
 <body>
@@ -545,7 +575,7 @@
     <div class="distribution-list">
       <div class="dist-card">
         <div class="dist-card-top">
-          <span>USDT</span>
+          <span>USDT (Binance)</span>
           <span class="dist-dot" style="background: var(--accent-binance);"></span>
         </div>
         <div class="dist-card-val" id="catVal-usdt">$0.00</div>
@@ -590,43 +620,63 @@
 
       <div class="dist-card" style="background:#FFF1F2;border-color:#FFE4E6;">
         <div class="dist-card-top">
-          <span style="color:var(--danger);">Yo Debo</span>
+          <span style="color:var(--danger);">Yo Debo Total</span>
           <span class="dist-dot" style="background: var(--danger);"></span>
         </div>
         <div class="dist-card-val" id="catVal-payable" style="color:var(--danger);">$0.00</div>
-        <div class="dist-card-sub" id="catPct-payable">Por Pagar</div>
+        <div class="dist-card-sub" id="catPct-payable">Incluye Conjunto</div>
       </div>
     </div>
   </main>
 
-  <!-- PANTALLA 2: CUENTAS -->
+  <!-- PANTALLA 2: CUENTAS (DESPLEGABLES POR CATEGORÍA) -->
   <main id="view-editor" class="app-screen">
     <button class="btn-primary-block" onclick="openModal('modalAccount')">
-      + Añadir Banco o Cuenta
+      + Añadir Cuenta o Banco Personalizado
     </button>
     <div id="accountsWrapper"></div>
   </main>
 
-  <!-- PANTALLA 3: DEUDAS Y COBROS -->
+  <!-- PANTALLA 3: DEUDAS Y COBROS (CON MODIFICACIÓN Y CONJUNTO APARTE) -->
   <main id="view-debts" class="app-screen">
-    <button class="btn-primary-block" onclick="openModal('modalDebt')">
-      + Añadir Registro de Deuda
+    <button class="btn-primary-block" onclick="openAddDebtModal()">
+      + Añadir Nuevo Registro
     </button>
 
-    <div class="debt-card-fold">
-      <div class="debt-card-header" style="color: var(--success);" onclick="toggleDebtSection('rec')">
-        <span>Me Deben (Por Cobrar)</span>
+    <!-- 1. ME DEBEN -->
+    <div class="fold-box" id="fold-rec">
+      <div class="fold-header" style="color: var(--success);" onclick="toggleFold('fold-rec')">
+        <div class="fold-header-left">
+          <span class="fold-header-arrow">▼</span>
+          <span>Me Deben (Por Cobrar)</span>
+        </div>
         <span id="debtReceivableTotal">$0.00</span>
       </div>
-      <div class="debt-card-body" id="body-rec"></div>
+      <div class="fold-body" id="body-rec"></div>
     </div>
 
-    <div class="debt-card-fold">
-      <div class="debt-card-header" style="color: var(--danger);" onclick="toggleDebtSection('pay')">
-        <span>Yo Debo (Por Pagar)</span>
+    <!-- 2. YO DEBO (PERSONAS) -->
+    <div class="fold-box" id="fold-pay">
+      <div class="fold-header" style="color: var(--danger);" onclick="toggleFold('fold-pay')">
+        <div class="fold-header-left">
+          <span class="fold-header-arrow">▼</span>
+          <span>Yo Debo (Compromisos)</span>
+        </div>
         <span id="debtPayableTotal">$0.00</span>
       </div>
-      <div class="debt-card-body" id="body-pay"></div>
+      <div class="fold-body" id="body-pay"></div>
+    </div>
+
+    <!-- 3. CONJUNTO / CONDOMINIO (SEPARADO VISUALMENTE) -->
+    <div class="fold-box" id="fold-conjunto" style="border: 1.5px solid var(--purple);">
+      <div class="fold-header" style="color: var(--purple);" onclick="toggleFold('fold-conjunto')">
+        <div class="fold-header-left">
+          <span class="fold-header-arrow">▼</span>
+          <span>Conjunto / Condominio 🏢</span>
+        </div>
+        <span id="debtConjuntoTotal">$0.00</span>
+      </div>
+      <div class="fold-body" id="body-conjunto"></div>
     </div>
   </main>
 
@@ -656,15 +706,16 @@
       <div class="form-group">
         <label>Categoría</label>
         <select id="newAccCategory">
-          <option value="dolares">Dólares ($)</option>
+          <option value="usdt">USDT</option>
+          <option value="dolares_ext">Dólares - En el extranjero</option>
+          <option value="dolares_ven">Dólares - Bancos venezolanos (Divisas)</option>
           <option value="euros">Euros (€)</option>
           <option value="bolivares">Bolívares (Bs)</option>
-          <option value="usdt">USDT</option>
         </select>
       </div>
       <div class="form-group">
-        <label>Nombre del Banco / Cuenta</label>
-        <input type="text" id="newAccName" placeholder="Ej: Zelle, Banesco...">
+        <label>Nombre de la Cuenta / Banco</label>
+        <input type="text" id="newAccName" placeholder="Ej: Nueva Subcuenta Binance...">
       </div>
       <div class="form-group">
         <label>Saldo Inicial</label>
@@ -677,23 +728,25 @@
     </div>
   </div>
 
-  <!-- MODAL: AGREGAR DEUDA -->
+  <!-- MODAL: AGREGAR / EDITAR DEUDA -->
   <div id="modalDebt" class="modal-overlay">
     <div class="modal-box">
-      <h4>Nuevo Registro</h4>
+      <h4 id="debtModalTitle">Nuevo Registro de Deuda</h4>
+      <input type="hidden" id="editDebtId" value="">
       <div class="form-group">
-        <label>Tipo</label>
+        <label>Categoría</label>
         <select id="newDebtType">
-          <option value="receivable">Me deben (Por cobrar)</option>
-          <option value="payable">Debo (Por pagar)</option>
+          <option value="receivable">Me deben (Cobro)</option>
+          <option value="payable">Yo debo</option>
+          <option value="conjunto">Conjunto / Condominio 🏢</option>
         </select>
       </div>
       <div class="form-group">
-        <label>Nombre de la Persona</label>
-        <input type="text" id="newDebtPerson" placeholder="Ej: Valerie">
+        <label>Concepto / Persona</label>
+        <input type="text" id="newDebtPerson" placeholder="Ej: Mami, Cuota mensual...">
       </div>
       <div class="form-group">
-        <label>Monto</label>
+        <label>Monto ($)</label>
         <input type="number" id="newDebtAmount" value="0" step="any">
       </div>
       <div class="modal-actions">
@@ -703,71 +756,127 @@
     </div>
   </div>
 
+  <!-- MODAL: EDITAR NOMBRE DE CUENTA -->
+  <div id="modalEditAccName" class="modal-overlay">
+    <div class="modal-box">
+      <h4>Editar Nombre de Cuenta</h4>
+      <input type="hidden" id="editAccId" value="">
+      <div class="form-group">
+        <label>Nombre</label>
+        <input type="text" id="editAccNameInput">
+      </div>
+      <div class="modal-actions">
+        <button class="btn-cancel" onclick="closeModal('modalEditAccName')">Cancelar</button>
+        <button class="btn-confirm" onclick="confirmEditAccName()">Guardar</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL: CONFIRMACIÓN DE BORRADO -->
+  <div id="modalConfirmDelete" class="modal-overlay">
+    <div class="modal-box">
+      <h4>¿Confirmar eliminación?</h4>
+      <p id="deleteConfirmText" style="font-size:0.85rem;color:var(--text-muted);margin-bottom:1rem;"></p>
+      <div class="modal-actions">
+        <button class="btn-cancel" onclick="closeModal('modalConfirmDelete')">Cancelar</button>
+        <button class="btn-danger-confirm" id="btnExecuteDelete">Eliminar</button>
+      </div>
+    </div>
+  </div>
+
   <script>
     const BANK_SVG = `<svg viewBox="0 0 24 24"><path d="M4 10v7h3v-7H4zm6 0v7h3v-7h-3zm8 0v7h3v-7h-3zM2 22h19v-3H2v3zm9.5-20L2 7v2h19V7l-9.5-5z"/></svg>`;
 
-    const defaultAccounts = [
-      { id: '1', category: 'usdt', name: 'Binance', balance: 0, customImage: null },
-      { id: '2', category: 'dolares', name: 'Wells Fargo / Zelle', balance: 0, customImage: null },
-      { id: '3', category: 'dolares', name: 'Banesco Panamá', balance: 0, customImage: null },
-      { id: '4', category: 'dolares', name: 'Zinli', balance: 0, customImage: null },
-      { id: '5', category: 'dolares', name: 'Dólares en Efectivo', balance: 0, customImage: null },
-      { id: '6', category: 'dolares', name: 'Banco Venezolano (Custodia)', balance: 0, customImage: null },
-      { id: '7', category: 'euros', name: 'Euros en Efectivo', balance: 0, customImage: null },
-      { id: '8', category: 'euros', name: 'CaixaBank', balance: 0, customImage: null },
-      { id: '9', category: 'euros', name: 'BBVA', balance: 0, customImage: null },
-      { id: '10', category: 'bolivares', name: 'Bancos Nacionales (Bs)', balance: 0, customImage: null }
+    // Estructura predeterminada con bloqueos de borrado (isFixed: true)
+    const initialAccounts = [
+      // 1. USDT
+      { id: 'fix_binance', category: 'usdt', name: 'Binance', balance: 0, isFixed: true, customImage: null },
+      // 2. Dólares en el Extranjero
+      { id: 'fix_wf', category: 'dolares_ext', name: 'Wells Fargo / Zelle', balance: 0, isFixed: true, customImage: null },
+      { id: 'fix_bpa', category: 'dolares_ext', name: 'Banesco Panamá', balance: 0, isFixed: true, customImage: null },
+      { id: 'fix_zinli', category: 'dolares_ext', name: 'Zinli', balance: 0, isFixed: true, customImage: null },
+      { id: 'fix_usd_efec', category: 'dolares_ext', name: 'Dólares en Efectivo', balance: 0, isFixed: true, customImage: null },
+      // 2b. Divisas en Bancos Venezolanos
+      { id: 'fix_bdv', category: 'dolares_ven', name: 'Banco de Venezuela', balance: 0, isFixed: true, customImage: null },
+      { id: 'fix_tesoro', category: 'dolares_ven', name: 'Banco del Tesoro', balance: 0, isFixed: true, customImage: null },
+      { id: 'fix_banesco', category: 'dolares_ven', name: 'Banesco', balance: 0, isFixed: true, customImage: null },
+      { id: 'fix_bnc', category: 'dolares_ven', name: 'BNC (Banco Nacional de Crédito)', balance: 0, isFixed: true, customImage: null },
+      // 3. Euros
+      { id: 'fix_eur_efec', category: 'euros', name: 'Euros en Efectivo', balance: 0, isFixed: true, customImage: null },
+      { id: 'fix_caixa', category: 'euros', name: 'CaixaBank', balance: 0, isFixed: true, customImage: null },
+      { id: 'fix_bbva', category: 'euros', name: 'BBVA', balance: 0, isFixed: true, customImage: null },
+      // 4. Bolívares
+      { id: 'fix_ves_nac', category: 'bolivares', name: 'Bancos Nacionales (Bs)', balance: 0, isFixed: true, customImage: null }
     ];
 
-    const defaultDebts = [
-      { id: 'd1', person: 'Andrés', amount: 500, type: 'payable' },
-      { id: 'd2', person: 'Valerie', amount: 470, type: 'receivable' },
-      { id: 'd3', person: 'Junior', amount: 25, type: 'receivable' }
+    // Deudas fijas protegidas
+    const initialDebts = [
+      // Me deben
+      { id: 'fix_d_andres', person: 'Andrés', amount: 0, type: 'receivable', isFixed: true },
+      { id: 'fix_d_mami', person: 'Mami', amount: 0, type: 'receivable', isFixed: true },
+      { id: 'fix_d_bot_rec', person: 'Bot', amount: 0, type: 'receivable', isFixed: true },
+      // Yo debo
+      { id: 'fix_d_andres_pay', person: 'Andrés', amount: 500, type: 'payable', isFixed: true },
+      { id: 'fix_d_bot_pay', person: 'Bot', amount: 0, type: 'payable', isFixed: true },
+      { id: 'fix_d_mulas', person: 'Mulas', amount: 0, type: 'payable', isFixed: true },
+      // Conjunto aparte
+      { id: 'fix_d_conjunto', person: 'Conjunto / Condominio', amount: 0, type: 'conjunto', isFixed: true }
     ];
 
     let appState = {
       rate: 1007,
-      accounts: defaultAccounts,
-      debts: defaultDebts
+      accounts: initialAccounts,
+      debts: initialDebts
     };
 
     let selectedUploadId = null;
+    let pendingDeleteAction = null;
 
-    // Normalizador de compatibilidad
     function loadAndSanitizeData() {
       try {
-        const stored = localStorage.getItem('my_wallets_v5');
+        const stored = localStorage.getItem('my_wallets_v6');
         if (stored) {
           const parsed = JSON.parse(stored);
           if (parsed && typeof parsed === 'object') {
             if (parsed.rate) appState.rate = parseFloat(parsed.rate) || 1007;
+            
             if (Array.isArray(parsed.accounts) && parsed.accounts.length > 0) {
-              appState.accounts = parsed.accounts.map(a => ({
-                id: a.id || String(Date.now() + Math.random()),
-                category: a.category || a.cat || 'dolares',
-                name: a.name || 'Cuenta',
-                balance: parseFloat(a.balance !== undefined ? a.balance : (a.bal !== undefined ? a.bal : 0)) || 0,
-                customImage: a.customImage || a.img || null
-              }));
+              // Fusionar respetando los items fijos
+              const existingMap = new Map(parsed.accounts.map(a => [a.id, a]));
+              appState.accounts = initialAccounts.map(fix => {
+                const found = existingMap.get(fix.id);
+                return found ? { ...fix, balance: found.balance || 0, name: found.name || fix.name, customImage: found.customImage || null } : fix;
+              });
+              // Añadir las adicionales del usuario
+              parsed.accounts.forEach(a => {
+                if (!initialAccounts.some(fix => fix.id === a.id)) {
+                  appState.accounts.push(a);
+                }
+              });
             }
-            if (Array.isArray(parsed.debts)) {
-              appState.debts = parsed.debts.map(d => ({
-                id: d.id || String(Date.now() + Math.random()),
-                person: d.person || 'Persona',
-                amount: parseFloat(d.amount !== undefined ? d.amount : (d.amt !== undefined ? d.amt : 0)) || 0,
-                type: d.type || 'receivable'
-              }));
+
+            if (Array.isArray(parsed.debts) && parsed.debts.length > 0) {
+              const debtMap = new Map(parsed.debts.map(d => [d.id, d]));
+              appState.debts = initialDebts.map(fix => {
+                const found = debtMap.get(fix.id);
+                return found ? { ...fix, amount: found.amount !== undefined ? found.amount : fix.amount, person: found.person || fix.person } : fix;
+              });
+              parsed.debts.forEach(d => {
+                if (!initialDebts.some(fix => fix.id === d.id)) {
+                  appState.debts.push(d);
+                }
+              });
             }
           }
         }
       } catch(e) {
-        console.warn('Iniciando con datos predeterminados');
+        console.warn('Iniciando estructura blindada limpia');
       }
     }
 
     function saveState() {
       try {
-        localStorage.setItem('my_wallets_v5', JSON.stringify(appState));
+        localStorage.setItem('my_wallets_v6', JSON.stringify(appState));
       } catch(e) {}
     }
 
@@ -801,24 +910,34 @@
       return bal;
     }
 
+    function toggleFold(foldId) {
+      const el = document.getElementById(foldId);
+      if (el) el.classList.toggle('collapsed');
+    }
+
     function updateDashboardData() {
       let totals = { usdt: 0, dolares: 0, euros: 0, bolivares: 0 };
       let accountsSum = 0;
 
       appState.accounts.forEach(acc => {
         const norm = getNormalizedValue(acc);
-        totals[acc.category] = (totals[acc.category] || 0) + norm;
+        if (acc.category === 'usdt') totals.usdt += norm;
+        else if (acc.category === 'dolares_ext' || acc.category === 'dolares_ven') totals.dolares += norm;
+        else if (acc.category === 'euros') totals.euros += norm;
+        else if (acc.category === 'bolivares') totals.bolivares += norm;
         accountsSum += norm;
       });
 
-      let recTotal = 0, payTotal = 0;
+      let recTotal = 0, payTotal = 0, conjTotal = 0;
       appState.debts.forEach(d => {
         const amt = parseFloat(d.amount) || 0;
         if (d.type === 'receivable') recTotal += amt;
-        else payTotal += amt;
+        else if (d.type === 'payable') payTotal += amt;
+        else if (d.type === 'conjunto') conjTotal += amt;
       });
 
-      const netWorth = accountsSum + recTotal - payTotal;
+      const totalPasivo = payTotal + conjTotal;
+      const netWorth = accountsSum + recTotal - totalPasivo;
       document.getElementById('sumTotal').textContent = `$${netWorth.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
 
       const cats = [
@@ -838,9 +957,8 @@
       });
 
       document.getElementById('catVal-receivable').textContent = `$${recTotal.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
-      document.getElementById('catVal-payable').textContent = `$${payTotal.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+      document.getElementById('catVal-payable').textContent = `$${totalPasivo.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
 
-      // Donut Chart
       let chartItems = [
         { label: 'USDT', val: totals.usdt, color: '#F59E0B' },
         { label: 'Dólares', val: totals.dolares, color: '#10B981' },
@@ -899,45 +1017,125 @@
       });
     }
 
+    // RENDERIZAR CUENTAS CON ACORDEONES PLEGABLES
     function renderAccountsList() {
       const containerAcc = document.getElementById('accountsWrapper');
       containerAcc.innerHTML = '';
 
-      const catMeta = [
-        { key: 'usdt', label: 'USDT (Binance)', color: 'var(--accent-binance)' },
-        { key: 'dolares', label: 'Dólares ($)', color: 'var(--accent-usd)' },
-        { key: 'euros', label: 'Euros (€) [Paridad 1:1]', color: 'var(--accent-eur)' },
-        { key: 'bolivares', label: 'Bolívares [÷ Tasa = USDT]', color: 'var(--accent-ves)' }
+      const categoriesConfig = [
+        {
+          id: 'fold_usdt',
+          title: 'USDT (Binance)',
+          color: 'var(--accent-binance)',
+          subSections: [
+            { label: 'Cuentas Binance / USDT', key: 'usdt' }
+          ]
+        },
+        {
+          id: 'fold_dolares',
+          title: 'Dólares ($)',
+          color: 'var(--accent-usd)',
+          subSections: [
+            { label: 'Cuentas en el Extranjero', key: 'dolares_ext' },
+            { label: 'Divisas en Bancos Venezolanos', key: 'dolares_ven' }
+          ]
+        },
+        {
+          id: 'fold_euros',
+          title: 'Euros (€) [Paridad 1:1]',
+          color: 'var(--accent-eur)',
+          subSections: [
+            { label: 'Cuentas en Euros', key: 'euros' }
+          ]
+        },
+        {
+          id: 'fold_bolivares',
+          title: `Bolívares [÷ ${appState.rate} = USDT]`,
+          color: 'var(--accent-ves)',
+          subSections: [
+            { label: 'Bancos Nacionales', key: 'bolivares' }
+          ]
+        }
       ];
 
-      catMeta.forEach(meta => {
-        const filtered = appState.accounts.filter(a => a.category === meta.key);
-        const block = document.createElement('div');
-        block.className = 'category-block';
+      categoriesConfig.forEach(cat => {
+        const box = document.createElement('div');
+        box.className = 'fold-box';
+        box.id = cat.id;
 
-        let inner = `<div class="category-title" style="color:${meta.color}"><span>${meta.label}</span></div>`;
+        let contentHtml = '';
 
-        filtered.forEach(acc => {
-          let iconHtml = acc.customImage ? `<img src="${acc.customImage}">` : BANK_SVG;
-          inner += `
-            <div class="account-item">
-              <div class="acc-left">
-                <button class="acc-icon-btn" onclick="openPicUploader('${acc.id}')" title="Subir foto del banco">
-                  ${iconHtml}
-                </button>
-                <div class="acc-name">${acc.name}</div>
-              </div>
-              <div class="acc-right">
-                <input class="acc-input" type="number" step="any" value="${acc.balance}" oninput="changeBalance('${acc.id}', this.value)">
-                <button class="btn-icon" onclick="deleteAccount('${acc.id}')">✕</button>
-              </div>
+        cat.subSections.forEach(sub => {
+          const list = appState.accounts.filter(a => a.category === sub.key);
+          contentHtml += `
+            <div class="sub-section-header">
+              <span>${sub.label}</span>
+              <button class="btn-sub-add" onclick="openAddAccountToCategory('${sub.key}')">+ Añadir</button>
             </div>
           `;
+
+          list.forEach(acc => {
+            let iconHtml = acc.customImage ? `<img src="${acc.customImage}">` : BANK_SVG;
+            // Botón de borrar SOLO si no es fija
+            let deleteBtnHtml = acc.isFixed 
+              ? `<span style="font-size:0.7rem;color:var(--text-muted);font-weight:700;padding:0 0.3rem;" title="Cuenta fija obligatoria">🔒</span>` 
+              : `<button class="btn-action-icon btn-del" onclick="askDeleteAccount('${acc.id}', '${acc.name}')">✕</button>`;
+
+            contentHtml += `
+              <div class="account-item">
+                <div class="acc-left">
+                  <button class="acc-icon-btn" onclick="openPicUploader('${acc.id}')" title="Toca para subir logo">
+                    ${iconHtml}
+                  </button>
+                  <div class="acc-name" onclick="openEditAccountName('${acc.id}', '${acc.name}')" title="Toca para editar nombre">
+                    ${acc.name} ✎
+                  </div>
+                </div>
+                <div class="acc-right">
+                  <input class="acc-input" type="number" step="any" value="${acc.balance}" oninput="changeBalance('${acc.id}', this.value)">
+                  ${deleteBtnHtml}
+                </div>
+              </div>
+            `;
+          });
         });
 
-        block.innerHTML = inner;
-        containerAcc.appendChild(block);
+        box.innerHTML = `
+          <div class="fold-header" style="color: ${cat.color};" onclick="toggleFold('${cat.id}')">
+            <div class="fold-header-left">
+              <span class="fold-header-arrow">▼</span>
+              <span>${cat.title}</span>
+            </div>
+          </div>
+          <div class="fold-body">${contentHtml}</div>
+        `;
+
+        containerAcc.appendChild(box);
       });
+    }
+
+    function openEditAccountName(id, currentName) {
+      document.getElementById('editAccId').value = id;
+      document.getElementById('editAccNameInput').value = currentName;
+      openModal('modalEditAccName');
+    }
+
+    function confirmEditAccName() {
+      const id = document.getElementById('editAccId').value;
+      const newName = document.getElementById('editAccNameInput').value.trim();
+      if (!newName) return alert('El nombre no puede estar vacío');
+      const acc = appState.accounts.find(a => a.id === id);
+      if (acc) {
+        acc.name = newName;
+        saveState();
+        renderAccountsList();
+      }
+      closeModal('modalEditAccName');
+    }
+
+    function openAddAccountToCategory(catKey) {
+      document.getElementById('newAccCategory').value = catKey;
+      openModal('modalAccount');
     }
 
     function openPicUploader(id) {
@@ -982,62 +1180,144 @@
       }
     }
 
-    function deleteAccount(id) {
-      appState.accounts = appState.accounts.filter(a => a.id !== id);
-      saveState();
-      renderAccountsList();
-      updateDashboardData();
+    function askDeleteAccount(id, name) {
+      document.getElementById('deleteConfirmText').textContent = `¿Seguro que deseas eliminar la cuenta "${name}"? Esta acción no se puede deshacer.`;
+      pendingDeleteAction = () => {
+        appState.accounts = appState.accounts.filter(a => a.id !== id);
+        saveState();
+        renderAccountsList();
+        updateDashboardData();
+      };
+      openModal('modalConfirmDelete');
     }
 
-    function toggleDebtSection(type) {
-      document.getElementById('body-' + type).classList.toggle('hidden');
-    }
-
+    // RENDERIZAR DEUDAS Y COBROS (CON CATEGORÍA CONJUNTO SEPARADA)
     function renderDebtsList() {
-      let recTotal = 0, payTotal = 0;
+      let recTotal = 0, payTotal = 0, conjTotal = 0;
       const recBox = document.getElementById('body-rec');
       const payBox = document.getElementById('body-pay');
+      const conjBox = document.getElementById('body-conjunto');
 
       recBox.innerHTML = '';
       payBox.innerHTML = '';
+      conjBox.innerHTML = '';
 
       appState.debts.forEach(d => {
         const amt = parseFloat(d.amount) || 0;
+        const deleteBtnHtml = d.isFixed
+          ? `<span style="font-size:0.7rem;color:var(--text-muted);font-weight:700;padding:0 0.3rem;" title="Registro fijo obligatorio">🔒</span>`
+          : `<button class="btn-action-icon btn-del" onclick="askDeleteDebt('${d.id}', '${d.person}')">✕</button>`;
+
         const row = document.createElement('div');
         row.className = 'debt-row';
         row.innerHTML = `
-          <div class="debt-person">${d.person}</div>
-          <div style="display:flex; align-items:center; gap:0.6rem;">
-            <strong style="font-size:0.95rem;">$${amt.toFixed(2)}</strong>
-            <button class="btn-icon" onclick="deleteDebt('${d.id}')">✕</button>
+          <div class="debt-person" onclick="openEditDebt('${d.id}')" title="Toca para editar">
+            ${d.person} ✎
+          </div>
+          <div style="display:flex; align-items:center; gap:0.4rem;">
+            <input class="acc-input" type="number" step="any" value="${amt}" oninput="changeDebtAmount('${d.id}', this.value)">
+            <button class="btn-action-icon btn-edit" onclick="openEditDebt('${d.id}')" title="Editar nombre o tipo">⚙</button>
+            ${deleteBtnHtml}
           </div>
         `;
 
         if (d.type === 'receivable') {
           recTotal += amt;
           recBox.appendChild(row);
-        } else {
+        } else if (d.type === 'payable') {
           payTotal += amt;
           payBox.appendChild(row);
+        } else if (d.type === 'conjunto') {
+          conjTotal += amt;
+          conjBox.appendChild(row);
         }
       });
 
       if (recBox.innerHTML === '') recBox.innerHTML = '<p style="color:var(--text-muted);font-size:0.75rem;padding:0.4rem 0;">No tienes cobros pendientes.</p>';
-      if (payBox.innerHTML === '') payBox.innerHTML = '<p style="color:var(--text-muted);font-size:0.75rem;padding:0.4rem 0;">No tienes deudas por pagar.</p>';
+      if (payBox.innerHTML === '') payBox.innerHTML = '<p style="color:var(--text-muted);font-size:0.75rem;padding:0.4rem 0;">No tienes deudas registradas.</p>';
+      if (conjBox.innerHTML === '') conjBox.innerHTML = '<p style="color:var(--text-muted);font-size:0.75rem;padding:0.4rem 0;">Al día con el conjunto.</p>';
 
       document.getElementById('debtReceivableTotal').textContent = `$${recTotal.toLocaleString('en-US', { minimumFractionDigits: 2 })}`;
       document.getElementById('debtPayableTotal').textContent = `$${payTotal.toLocaleString('en-US', { minimumFractionDigits: 2 })}`;
+      document.getElementById('debtConjuntoTotal').textContent = `$${conjTotal.toLocaleString('en-US', { minimumFractionDigits: 2 })}`;
     }
 
-    function deleteDebt(id) {
-      appState.debts = appState.debts.filter(d => d.id !== id);
+    function changeDebtAmount(id, val) {
+      const d = appState.debts.find(item => item.id === id);
+      if (d) {
+        d.amount = parseFloat(val) || 0;
+        saveState();
+        updateDashboardData();
+      }
+    }
+
+    function openAddDebtModal() {
+      document.getElementById('debtModalTitle').textContent = 'Nuevo Registro';
+      document.getElementById('editDebtId').value = '';
+      document.getElementById('newDebtPerson').value = '';
+      document.getElementById('newDebtAmount').value = '0';
+      document.getElementById('newDebtType').value = 'receivable';
+      openModal('modalDebt');
+    }
+
+    function openEditDebt(id) {
+      const d = appState.debts.find(item => item.id === id);
+      if (!d) return;
+      document.getElementById('debtModalTitle').textContent = 'Modificar Registro';
+      document.getElementById('editDebtId').value = d.id;
+      document.getElementById('newDebtPerson').value = d.person;
+      document.getElementById('newDebtAmount').value = d.amount;
+      document.getElementById('newDebtType').value = d.type;
+      openModal('modalDebt');
+    }
+
+    function saveDebt() {
+      const editId = document.getElementById('editDebtId').value;
+      const type = document.getElementById('newDebtType').value;
+      const person = document.getElementById('newDebtPerson').value.trim();
+      const amount = parseFloat(document.getElementById('newDebtAmount').value) || 0;
+
+      if (!person) return alert('Ingresa el nombre o concepto');
+
+      if (editId) {
+        const d = appState.debts.find(item => item.id === editId);
+        if (d) {
+          d.person = person;
+          d.amount = amount;
+          d.type = type;
+        }
+      } else {
+        appState.debts.push({
+          id: Date.now().toString(),
+          type: type,
+          person: person,
+          amount: amount,
+          isFixed: false
+        });
+      }
+
+      closeModal('modalDebt');
       saveState();
       renderDebtsList();
       updateDashboardData();
     }
 
-    function openModal(id) { document.getElementById(id).classList.add('active'); }
-    function closeModal(id) { document.getElementById(id).classList.remove('active'); }
+    function askDeleteDebt(id, person) {
+      document.getElementById('deleteConfirmText').textContent = `¿Seguro que deseas eliminar el registro de "${person}"? Esta acción no se puede deshacer.`;
+      pendingDeleteAction = () => {
+        appState.debts = appState.debts.filter(d => d.id !== id);
+        saveState();
+        renderDebtsList();
+        updateDashboardData();
+      };
+      openModal('modalConfirmDelete');
+    }
+
+    document.getElementById('btnExecuteDelete').onclick = function() {
+      if (pendingDeleteAction) pendingDeleteAction();
+      closeModal('modalConfirmDelete');
+      pendingDeleteAction = null;
+    };
 
     function saveAccount() {
       const cat = document.getElementById('newAccCategory').value;
@@ -1051,6 +1331,7 @@
         category: cat,
         name: name,
         balance: bal,
+        isFixed: false,
         customImage: null
       });
 
@@ -1062,27 +1343,8 @@
       updateDashboardData();
     }
 
-    function saveDebt() {
-      const type = document.getElementById('newDebtType').value;
-      const person = document.getElementById('newDebtPerson').value.trim();
-      const amount = parseFloat(document.getElementById('newDebtAmount').value) || 0;
-
-      if (!person) return alert('Ingresa el nombre de la persona');
-
-      appState.debts.push({
-        id: Date.now().toString(),
-        type: type,
-        person: person,
-        amount: amount
-      });
-
-      closeModal('modalDebt');
-      document.getElementById('newDebtPerson').value = '';
-      document.getElementById('newDebtAmount').value = '0';
-      saveState();
-      renderDebtsList();
-      updateDashboardData();
-    }
+    function openModal(id) { document.getElementById(id).classList.add('active'); }
+    function closeModal(id) { document.getElementById(id).classList.remove('active'); }
 
     // Inicialización inmediata
     (function init() {
